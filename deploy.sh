@@ -3,6 +3,10 @@
 # Connexion au compte root
 su < rotomagus 
 
+# Mise à jour des paquets
+apt update 
+apt upgrade -y
+
 # Installation des paquets nécéssaires
 apt install git
 

@@ -1,15 +1,16 @@
 #!/bin/bash
 
-# Connexion au compte root
-su < rotomagus 
+echo Mise à jour des paquets...
+apt update &> /dev/null
+apt upgrade -y &> /dev/null
 
-# Mise à jour des paquets
-apt update 
-apt upgrade -y
+echo Installation des paquets nécéssaires...
+apt install git &> /dev/null
 
-# Installation des paquets nécéssaires
-apt install git
-
-# Récupération du projet
+echo Récupération du projet...
 cd /var/www/
-git pull https://github.com/kacihmd/signalres
+git clone https://github.com/kacihmd/signalres &> /dev/null
+
+
+echo Déploiement du projet SignalRes : Fini !
+

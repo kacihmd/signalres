@@ -1,61 +1,26 @@
+html,body, footer, header {
+    margin:0px;
+    padding: 0px;
+}
+
 header{
+    position:fixed;
     width: 100%;
-    height: 80px;
-    border-bottom: solid 1px rgba(16, 16, 16, 0.1);
+    height: 200px;
     font-family: 'Outfit', sans-serif;
-    background-color: #7D1128;
+    background-color: #ff910017;
+    top: 0px;
 }
 
-header .inner {
-    width: 95%;
-    height: 100%;
-    display: fixed;
-    margin: 0 auto;
+header .logo{
+    text-align: center;
 }
 
-.logo_container{
-    height: 100%;
-    display: table;
-    float: left;    
+header img{
+    height: 200px;
 }
 
-.logo_container h1{
-    color: #A6754B;
-    height: 100%;
-    display: table-cell;
-    vertical-align: middle;
-    font-weight: 200;
-}
-
-.logo_container h1 span{
-    font-weight: 800;
-}
-
-.navigation {
-    float: right;
-    height: 100%;
-}
-
-.navigation a{
-    height: 100%;
-    display: table;
-    float: left;
-    padding: 0px 20px;
-}
-
-.navigation a li {
-    display: table-cell;
-    vertical-align: middle;
-    color: #A6754B;
-}
-
-.navigation a li {
-    display: table-cell;
-    vertical-align: middle;
-    color: #A6754B;
-    font-size: 20px;
-}
-
-.navigation a li:hover {
-    color:cornsilk;
+body .content {
+    display: block;
+    margin-top: 200px;
 }

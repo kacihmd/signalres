@@ -8,16 +8,17 @@
         <title><?= $title ?></title>
         <link href="css/css.css" rel="stylesheet" /> 
     </head>
-        
+
+    <body>
+
     <header>
-        <div class="inner">
-            <div class="logo_container"> 
-                <img src="images/logo.png">
-            </div> 
+        <div class="logo">
+            <img src="images/logo.png">
         </div>
     </header>
 
-    <body>
+    <div class="content">
+
         <?= $content ?>
         a
 </br>
@@ -61,10 +62,13 @@ a
 </br> a
 </br> a
 </br>
+
+</div>
+
+<footer> 
+
+</footer>
+
     </body>
-
-    <footer> 
-
-    </footer>
 
 </html>

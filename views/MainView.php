@@ -19,7 +19,11 @@
 
     <div class="content">
 
-        <?= $content ?>
+    <div class="title">
+        <h1><?= $title ?></h1>
+    </div>
+        
+    <?= $content ?>
         a
 </br>
 a
@@ -65,9 +69,9 @@ a
 
 </div>
 
-<footer> 
-
-</footer>
+<div class="footer"> 
+    Ceci est un footer, je ne sais pas si il va servir mais il est là..
+</div>
 
     </body>
 

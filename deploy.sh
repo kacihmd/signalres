@@ -3,26 +3,32 @@
 apache2conf=/etc/apache2
 
 echo -e "--- Mise en place préliminaires ---\n"
-echo "Mise à jour des paquets..."
-apt update &> /dev/null
-apt upgrade -y &> /dev/null
+# echo "Mise à jour des paquets..."
+# apt update &> /dev/null 
+# apt upgrade -y &> /dev/null
 
 echo "Installation des paquets necéssaires..."
-apt install git 
+apt install -y git &> /dev/null
 
 echo "Recupération du projet depuis le dépot github..."
 cd /var/www/
-git clone https://github.com/kacihmd/signalres 
+git clone https://github.com/kacihmd/signalres &> /dev/null
+
+chown -R urouen signalres
 
 echo -e "--- Configuration d'Apache ---\n"
 
 echo "Supression du site par défaut..."
-rm $apache2conf/sites-enabled/000-defaut.conf 
+rm -rf /var/www/html
+rm $apache2conf/sites-enabled/000-default.conf 
+
+echo "Configuration d'Apache pour le projet..."
+e2nmod rewrite
 
 touch $apache2conf/sites-available/signalres.conf
 echo "
     <VirtualHost *:80>
-        ServerName 192.169.76.76:80
+        ServerName 192.168.76.76
         DocumentRoot \"/var/www/signalres\" 
         <Directory \"/var/www/signalres/\"> 
             Options Indexes FollowSymLinks
@@ -37,5 +43,4 @@ ln -s $apache2conf/sites-available/signalres.conf
 
 systemctl restart apache2.service
 
-echo Déploiement du projet SignalRes : Fini !
-
+echo "Déploiement du projet SignalRes : Fini !"

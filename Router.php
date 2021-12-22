@@ -29,6 +29,6 @@
     } else {
         // Sinon l'utilisateur est perdu (pour l'instant)
         http_response_code(404);
-        print("La page demandée n'existe pas !");
+        print("La page demandée n'existe pas ! " . $_SERVER['REQUEST_URI']);
     } 
 ?>

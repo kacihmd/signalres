@@ -11,7 +11,7 @@
         }
 
         // Cette fonction active le rendu de la page
-        protected function render($content) {
+        protected function render($includes, $content) {
             // Affiche $content dans la vue principale MainView
             $title = $this->title;
             require(__DIR__.'/../views/MainView.php');

@@ -1,4 +1,3 @@
-
 <h1>Bienvenue sur SignalRes !</h1>
 
 <p>

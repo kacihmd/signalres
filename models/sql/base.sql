@@ -1,10 +1,9 @@
 -- TABLE UTILISATEURS : ADMIN A L'ID 0
 
-CREATE TABLE utilisateurs (
-    idutil INT PRIMARY KEY NOT NULL,
-    nomutil VARCHAR(10),
-    nom VARCHAR(25),
-    prénom VARCHAR(25)
+CREATE TABLE user (
+    iduser INT PRIMARY KEY NOT NULL,
+    username VARCHAR(50),
+    mdp VARCHAR(25)
 );
 
 -- TABLE RESSOURCES
@@ -14,39 +13,39 @@ CREATE TABLE res (
     description VARCHAR(50),
     categorie VARCHAR(10),
     localisation VARCHAR(25), -- (batiment,etage,salle)
-    idutil INT,
-    CONSTRAINT FK_idutilres FOREIGN KEY (idutil)
-    REFERENCES utilisateurs(idutil)
+    iduser INT,
+    CONSTRAINT FK_iduserres FOREIGN KEY (iduser)
+    REFERENCES user(iduser)
 );
 
 -- TABLE ANOMALIES
 
-CREATE TABLE anomalies (
+CREATE TABLE signal (
     idres INT,
     descprobl VARCHAR(25),
     PRIMARY KEY(idres, descprobl),
-    CONSTRAINT FK_idresanomalies FOREIGN KEY (idres)
+    CONSTRAINT FK_idressignal FOREIGN KEY (idres)
     REFERENCES res(idres)
 );
 
 -- VUE TICKETS
 
 CREATE OR REPLACE VIEW tickets
-AS SELECT res.idres, descprobl, categorie, idutil FROM anomalies, res WHERE anomalies.idres = res.idres;
+AS SELECT res.idres, descprobl, categorie, iduser FROM signal, res WHERE anomalies.idres = res.idres;
 
 -- INSERTIONS DES UTILISATEURS 
 
-INSERT INTO `utilisateurs` (`idutil`, `nomutil`, `nom`, `prénom`) VALUES
-(0, 'admin', NULL, NULL),
-(1, 'resp1', 'Kevin', 'Kennedy'),
-(2, 'resp2', 'Lucy', 'Lavie'),
-(3, 'resp3', 'Michel', 'Marie'),
-(4, 'resp4', 'Jean', 'Jean'),
-(5, 'resp5', 'Dominique', 'Dubois');
+INSERT INTO `utilisateurs` (`iduser`, `username`, `mdp`) VALUES
+(0, 'admin', 'password'),
+(1, 'Kevin Kennedy', 'password'),
+(2, 'Lucy Lavie', 'password'),
+(3, 'Michel Marie', 'password'),
+(4, 'Jean Jean', 'password'),
+(5, 'Dominique Dubois', 'password');
 
 -- INSERTIONS DES RESSOURCES
 
-INSERT INTO `res` (`idres`, `description`, `categorie`, `localisation`, `idutil`) VALUES
+INSERT INTO `res` (`idres`, `description`, `categorie`, `localisation`, `iduser`) VALUES
 (1, 'Savon', 'Savon', 'salle U2.2.2', 1),
 (2, 'Toilettes', 'Toilettes', '2e étage', 2),
 (3, 'Ordinateur portable', 'Ordinateur', 'salle U1.1.43', 3),

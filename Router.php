@@ -29,7 +29,7 @@
     } else if ($url[1] == "login") {
         // Si l'utilisateur demande la page de signalement
         // Nous appellons le controlleur approprié
-        require_once('controllers/SignalController.php');
+        require_once('controllers/LoginController.php');
         $controller = new LoginController();
         $controller->render();
     } else {

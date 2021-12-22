@@ -2,8 +2,6 @@
 
 <?php $title = 'Connexion'; ?>
 
-<?php ob_start(); ?>
-
 <!-- Se connecte : Action ouvrir la session !!! -->
 
 <h1 class="formulaire">
@@ -13,7 +11,3 @@
   <input type="submit" name="submit" value="Connexion" id="buttongreen"/>
   </form>
 </h1>  
-
-<?php $content = ob_get_clean(); ?>
-
-<?php require('MainView.php'); ?>

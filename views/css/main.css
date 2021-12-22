@@ -17,7 +17,7 @@ html,body, footer {
 .mainHeader {
     position: sticky;
     top: 0;
-
+    height: 100px;
     font-family: 'Outfit', sans-serif;
     background-color: white;
 
@@ -25,11 +25,10 @@ html,body, footer {
     border-radius: 50px;
     margin: 5px 5px 5px 5px;
     padding: 0 50px 0 50px;
-    z-index: 100;
 }
 
 .logo {
-    width: 200px;
+    width: 100px;
     margin-left: 20px;
 }
 
@@ -37,7 +36,7 @@ html,body, footer {
     position: absolute;
     float: right;
     right:20px;
-    top: 40%;
+    top: 30%;
 }
 
 .mainHeader a {

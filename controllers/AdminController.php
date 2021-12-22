@@ -13,7 +13,7 @@ class AdminController extends MainController {
     public function render($include = null, $content = null) {
         // Récupération de la ressources à signaler depuis le modèle
 
-        $includes = [['/views/css/admin.css', 'stylesheet']];
+        $include = [['/views/css/admin.css', 'stylesheet']];
 
         // On génère la vue spécifique au signalement d'une ressource
         ob_start();

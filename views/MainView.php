@@ -1,4 +1,4 @@
-<!-- A définir ici le modèle de page générale -->
+<!-- A définir ici la vue de page générale -->
 <!-- Par exemple le menu qui s'affiche partout, le footer etc... -->
 
 <!DOCTYPE html>
@@ -70,7 +70,7 @@ a
 </div>
 
 <div class="footer"> 
-    Ceci est un footer, je ne sais pas si il va servir mais il est là..
+    SignalRes : Dites nous tous vos problèmes !
 </div>
 
     </body>

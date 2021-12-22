@@ -1,12 +1,18 @@
+/* Déclaration des polices d'écritures */
+
 @font-face {
     font-family: 'Roboto';
     src: url('../../public/fonts/Roboto-Light.ttf');
 }
 
+/* Initialisation des marges et padding des éléments à 0 */
+
 html,body, footer, header {
     margin:0px;
     padding: 0px;
 }
+
+/* Header fixe */
 
 header{
     position:fixed;
@@ -25,6 +31,8 @@ header img{
     height: 200px;
 }
 
+/* Footer fixe */
+
 .footer{
     position: fixed;
     right: 0;
@@ -33,7 +41,11 @@ header img{
     padding: 1rem;
     background-color: #efefef;
     text-align: center;
+    font-family: Roboto;
+    font-size: 18px;
 }
+
+/* Contenu de la page */
 
 body .content {
     display: block;
@@ -52,23 +64,24 @@ body .content {
     font-size: 30px;
 }
 
+/* Bouton vert */
+
 #buttongreen {
-	display: inline-block;
-	padding: 15px 30px;
+	padding: 5px 10px;
+    margin-top: 10px;
 	color: #676f54;
-	text-transform: uppercase;
-	letter-spacing: 4px;
 	text-decoration: none;
-	font-size: 24px;
+	font-size: 22px;    
 	overflow: hidden;
-	transition: 0.2s ease-in-out;
+	transition: 0.6s ease-in-out;
 	font-family: Titre;
-  font-weight: 1000;
-  cursor: pointer;
+    font-weight: 300;
+    text-transform: uppercase;
+    cursor: pointer;
 }
 
 #buttongreen:hover {
 	color: #676f54;
 	background: #bde4a8;
-	box-shadow: 0 0 10px #bde4a8, 0 0 40px #bde4a8, 0 0 70px #bde4a8;
+	box-shadow: 0 0 0px #bde4a8, 0 0 20px #bde4a8;
 }

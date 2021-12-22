@@ -1,0 +1,10 @@
+// 22 Décembre;
+
+J'ai supprimé le sql car tu l'avais copier dans models/base.sql
+
+Dans ResView ce n'est pas un tableau j'ai commencé le formulaire de rapport d'anomalie, 
+je ne savais pas excatement ce que tu voulais, on verra ca ensemble
+
+J'ai avancé un peu, c'est vrai qu'il y a pas mal de boulot, demain je m'y met aussi à fond ;)
+
+//

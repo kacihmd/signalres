@@ -14,18 +14,16 @@
 
     if ($url[1] == "" || $url[1] == "menu") {
         // Si l'utilisateur demande le menu
-        printf("Welcome to signal res ! <br>");
-
         // Nous appellons le controlleur approprié
         require_once('controllers/MenuController.php');
         $controller = new MenuController();
-        $controller->response();
+        $controller->render();
 
-    } else if ($url[1] == "res") {
-        // Si l'utilisateur demande la page des ressources
+    } else if ($url[1] == "signal") {
+        // Si l'utilisateur demande la page de signalement
         // Nous appellons le controlleur approprié
-        require_once('controllers/ResController.php');
-        $controller = new ResController();
+        require_once('controllers/SignalController.php');
+        $controller = new SignalController();
         $controller->render();
 
     } else {

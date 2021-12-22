@@ -14,21 +14,22 @@ html,body, footer, header {
 
 /* Header fixe */
 
-header{
-    position:fixed;
+.mainHeader {
+    position: sticky;
+    top: 0px;
     width: 100%;
-    height: 200px;
+
     font-family: 'Outfit', sans-serif;
     background-color: #ff910017;
-    top: 0px;
+
+    border: 5px dashed black;
 }
 
-header .logo{
+.logo {
     text-align: center;
-}
-
-header img{
-    height: 200px;
+    width: 15%;
+    padding: 0;
+    margin: 0;
 }
 
 /* Footer fixe */
@@ -47,7 +48,7 @@ header img{
 
 /* Contenu de la page */
 
-body .content {
+.content {
     display: block;
     margin-top: 200px;
 }

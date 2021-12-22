@@ -2,8 +2,6 @@
 
 <?php $title = 'Nom de la ressource'; ?>
 
-<?php ob_start(); ?>
-
  <h1 class="formulaire">
   Formulaire d'anomalie
   <form method="post" action="####.php">
@@ -12,7 +10,3 @@
   <input type="submit" name="submit" value="valider" id="buttongreen"/>
   </form>
 </h1>
-
-<?php $content = ob_get_clean(); ?>
-
-<?php require('MainView.php'); ?>

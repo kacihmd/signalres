@@ -1,11 +1,16 @@
 <?php
 
 require_once('MainController.php');
+require_once(__DIR__.'/../models/ResModel.php');
+// require_once(__DIR__.'/../models/SignalModel.php');
 
-class MenuController extends MainController {
+class SignalController extends MainController {
+
+    private ResModel $resModel;
 
     public function __construct() {
-        parent::__construct("Page Principale");
+        parent::__construct("Ressources");
+        $this->resModel = new ResModel();
     }
 
     public function render($content = null) {
@@ -14,7 +19,7 @@ class MenuController extends MainController {
 
         // On génère la vue spécifique au signalement d'une ressource
         ob_start();
-        require(__DIR__.'/../views/MenuView.php');
+        require(__DIR__.'/../views/SignalView.php');
         $content = ob_get_clean();
 
         parent::render($content);        

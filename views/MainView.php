@@ -6,72 +6,25 @@
     <head>
         <meta charset="utf-8" />
         <title><?= $title ?></title>
-        <link href="css/css.css" rel="stylesheet" /> 
+        <link href="views/css/main.css" rel="stylesheet" /> 
     </head>
 
     <body>
 
-    <header>
-        <div class="logo">
-            <img src="images/logo.png">
+        <!-- En tête de la page -->
+        <header class="mainHeader">
+            <img class="logo" src="images/logo.png">
+        </header>
+
+        <!-- Contenu inséré dynamiquement -->
+        <div class="content">
+            <?= $content ?>
         </div>
-    </header>
 
-    <div class="content">
-
-    <div class="title">
-        <h1><?= $title ?></h1>
-    </div>
-        
-    <?= $content ?>
-        a
-</br>
-a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br> a
-</br>
-
-</div>
-
-<div class="footer"> 
-    SignalRes : Dites nous tous vos problèmes !
-</div>
+        <!-- Pied de page -->
+        <div class="footer"> 
+            SignalRes : Dites nous tous vos problèmes !
+        </div>
 
     </body>
 

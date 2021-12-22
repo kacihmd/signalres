@@ -29,8 +29,8 @@ abstract class MainModel {
         }
     }
 
-    public function getOne($id){
-        $sql = "SELECT * FROM ".$this->table." WHERE id=".$id;
+    public function getOne($key, $value){
+        $sql = "SELECT * FROM ".$this->table." WHERE ".$key."=".$value;
         $query = $this->connexion->prepare($sql);
         $query->execute();
         return $query->fetch();    

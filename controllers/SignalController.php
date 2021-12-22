@@ -11,8 +11,7 @@ class SignalController extends MainController {
 
     public function __construct(int $resId) {
         assert($resId >= 0);
-
-        parent::__construct("Ressources");
+        parent::__construct("Signaler un problème...");
 
         $this->resModel = new ResModel();
         $this->resId = $resId;
@@ -20,7 +19,7 @@ class SignalController extends MainController {
 
     public function render($include = null, $content = null) {
         // Récupération de la ressources à signaler depuis le modèle
-        $res = $this->resModel->getOne($this->resId);
+        $res = $this->resModel->getOne("idres", $this->resId);
         
         $includes = [['views/css/signal.css', 'stylesheet']];
 

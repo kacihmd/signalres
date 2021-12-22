@@ -54,7 +54,7 @@ INSERT INTO `res` (`idres`, `description`, `categorie`, `localisation`, `iduser`
 
 -- INSERTIONS DES ANOMALIES
 
-INSERT INTO `anomalies` (`idres`, `descprobl`) VALUES
+INSERT INTO `signal` (`idres`, `descprobl`) VALUES
 (1, 'Ressource vide'),
 (2, 'Bouché'),
 (3, 'Problème de batterie'),

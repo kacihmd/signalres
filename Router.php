@@ -27,10 +27,22 @@
         $controller->render();
 
     } else if ($url[1] == "login") {
-        // Si l'utilisateur demande la page de signalement
+        // Si l'utilisateur demande la page de connexion
         // Nous appellons le controlleur approprié
         require_once('controllers/LoginController.php');
         $controller = new LoginController();
+        $controller->render();
+    } else if ($url[1] == "admin") {
+        // Si l'utilisateur demande la page de signalement
+        // Nous appellons le controlleur approprié
+        require_once('controllers/AdminController.php');
+        $controller = new AdminController();
+        $controller->render();
+    } else if ($url[1] == "responsable") {
+        // Si l'utilisateur demande la page de signalement
+        // Nous appellons le controlleur approprié
+        require_once('controllers/ResponsableController.php');
+        $controller = new ResponsableController();
         $controller->render();
     } else {
         // Sinon l'utilisateur est perdu (pour l'instant)

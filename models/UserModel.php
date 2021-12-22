@@ -4,7 +4,7 @@
     class UserModel extends MainModel {
 
         function __construct() {
-            parent::__construct("user");
+            parent::__construct("users");
         }
         
     }

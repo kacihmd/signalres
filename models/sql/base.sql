@@ -1,6 +1,6 @@
 -- TABLE UTILISATEURS : ADMIN A L'ID 0
 
-CREATE TABLE user (
+CREATE TABLE users (
     iduser INT PRIMARY KEY NOT NULL,
     username VARCHAR(50),
     mdp VARCHAR(25)
@@ -15,27 +15,27 @@ CREATE TABLE res (
     localisation VARCHAR(25), -- (batiment,etage,salle)
     iduser INT,
     CONSTRAINT FK_iduserres FOREIGN KEY (iduser)
-    REFERENCES user(iduser)
+    REFERENCES users(iduser)
 );
 
 -- TABLE ANOMALIES
 
-CREATE TABLE signal (
+CREATE TABLE anomalie (
     idres INT,
     descprobl VARCHAR(25),
     PRIMARY KEY(idres, descprobl),
-    CONSTRAINT FK_idressignal FOREIGN KEY (idres)
+    CONSTRAINT FK_idresanomalie FOREIGN KEY (idres)
     REFERENCES res(idres)
 );
 
 -- VUE TICKETS
 
 CREATE OR REPLACE VIEW tickets
-AS SELECT res.idres, descprobl, categorie, iduser FROM signal, res WHERE anomalies.idres = res.idres;
+AS SELECT res.idres, descprobl, categorie, iduser FROM anomalie, res WHERE anomalie.idres = res.idres;
 
 -- INSERTIONS DES UTILISATEURS 
 
-INSERT INTO `utilisateurs` (`iduser`, `username`, `mdp`) VALUES
+INSERT INTO `users` (`iduser`, `username`, `mdp`) VALUES
 (0, 'admin', 'password'),
 (1, 'Kevin Kennedy', 'password'),
 (2, 'Lucy Lavie', 'password'),
@@ -54,7 +54,7 @@ INSERT INTO `res` (`idres`, `description`, `categorie`, `localisation`, `iduser`
 
 -- INSERTIONS DES ANOMALIES
 
-INSERT INTO `signal` (`idres`, `descprobl`) VALUES
+INSERT INTO `anomalie` (`idres`, `descprobl`) VALUES
 (1, 'Ressource vide'),
 (2, 'Bouché'),
 (3, 'Problème de batterie'),

@@ -10,8 +10,10 @@
         <link href="views/css/main.css" rel="stylesheet" />
 
         <?php
-            foreach ($includes as $file) {
-                echo('<link href="'.$file[0].'" rel="'.$file[1].'">');
+            if ($includes != null) {
+                foreach ($includes as $file) {
+                    echo('<link href="'.$file[0].'" rel="'.$file[1].'">');
+                }
             }
         ?>
     </head>

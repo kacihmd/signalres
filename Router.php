@@ -23,9 +23,15 @@
         // Si l'utilisateur demande la page de signalement
         // Nous appellons le controlleur approprié
         require_once('controllers/SignalController.php');
-        $controller = new SignalController();
+        $controller = new SignalController($url[2]);
         $controller->render();
 
+    } else if ($url[1] == "login") {
+        // Si l'utilisateur demande la page de signalement
+        // Nous appellons le controlleur approprié
+        require_once('controllers/SignalController.php');
+        $controller = new LoginController();
+        $controller->render();
     } else {
         // Sinon l'utilisateur est perdu (pour l'instant)
         http_response_code(404);

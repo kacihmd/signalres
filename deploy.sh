@@ -23,7 +23,7 @@ rm -rf /var/www/html
 rm $apache2conf/sites-enabled/000-default.conf 
 
 echo "Configuration d'Apache pour le projet..."
-e2nmod rewrite
+a2enmod rewrite
 
 touch $apache2conf/sites-available/signalres.conf
 echo "

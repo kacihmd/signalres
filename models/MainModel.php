@@ -30,7 +30,7 @@ abstract class MainModel {
     }
 
     public function getOne($id){
-        $sql = "SELECT * FROM ".$this->table." WHERE id=".$this->id;
+        $sql = "SELECT * FROM ".$this->table." WHERE id=".$id;
         $query = $this->connexion->prepare($sql);
         $query->execute();
         return $query->fetch();    

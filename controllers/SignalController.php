@@ -20,7 +20,7 @@ class SignalController extends MainController {
 
     public function render($include = null, $content = null) {
         // Récupération de la ressources à signaler depuis le modèle
-        $res = $resModel->getOne($this->resId);
+        $res = $this->resModel->getOne($this->resId);
         
         $include = null;
 

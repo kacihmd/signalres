@@ -22,7 +22,7 @@ class SignalController extends MainController {
         // Récupération de la ressources à signaler depuis le modèle
         $res = $this->resModel->getOne($this->resId);
         
-        $include = null;
+        $includes = [['views/css/signal.css', 'stylesheet']];
 
         // On génère la vue spécifique au signalement d'une ressource
         ob_start();

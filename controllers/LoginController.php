@@ -21,7 +21,7 @@ class LoginController extends MainController {
         if (isset($user) && $user!=null) {
 
             // Si le mot de passe est bien le bon
-            if (true) {
+            if(!strcmp($_POST['mdp'], $user[2])) {
                 $_SESSION['username'] = $_POST['user'];
                 $_SESSION['iduser'] = $user['iduser'];
 

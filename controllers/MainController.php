@@ -13,6 +13,16 @@
 
         // Cette fonction active le rendu de la page
         protected function render($includes, $content) {
+            $session=false;
+            $admin=false;
+
+            if(isset($_SESSION['iduser']) && $_SESSION['iduser']!=null) {
+                $session=true;
+                if($_SESSION['iduser']==0) {
+                    $admin=true;
+                }
+            }
+
             // Affiche $content dans la vue principale MainView
             $title = $this->title;
             require(__DIR__.'/../views/MainView.php');

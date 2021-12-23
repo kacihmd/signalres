@@ -24,6 +24,14 @@
         <header class="mainHeader">
             <img class="logo" src="/views/images/logo.png">
             <div class="navigation">
+                <?php if($admin) {
+                    echo('<a href="/admin">Page Admin</a>');
+                    } 
+                ?>
+                <?php if($session) {
+                    echo('<a href="/responsable">Page Responsable</a>');
+                    } 
+                ?>
                 <a href="/menu">Menu</a>
                 <a href="/login">Connexion</a>
             </div>

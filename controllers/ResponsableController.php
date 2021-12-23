@@ -16,11 +16,9 @@ class ResponsableController extends MainController {
 
     public function render($include = null, $content = null) {
         // Récupération des ressources du responsable
-        $res = $this->resModel->getOne("iduser", $this->sessionId);
+        $res = $this->resModel->getOne("iduser", $_SESSION['iduser']);
 
         $include = [['/views/css/responsable.css', 'stylesheet']];
-
-        echo($_SESSION['username']);
 
         // On génère la vue spécifique à la page responsable
         ob_start();

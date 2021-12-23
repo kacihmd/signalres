@@ -23,6 +23,7 @@ class LoginController extends MainController {
             // Si le mot de passe est bien le bon
             if (true) {
                 $_SESSION['username'] = $_POST['user'];
+                $_SESSION['iduser'] = $user['iduser'];
 
                 header('Location: http://192.168.76.76/responsable');    
             }  
@@ -33,8 +34,9 @@ class LoginController extends MainController {
     }
 
     public function render($include = null, $content = null) {
-        // Récupération de la ressources à signaler depuis le modèle
-        $users = $this->userModel->getAll();
+        if(isset($_POST['user']) && isset($_POST['mdp'])) {
+            $this->connect();
+        }
 
         $include = [['/views/css/login.css', 'stylesheet']];
 
@@ -42,10 +44,6 @@ class LoginController extends MainController {
         ob_start();
         require(__DIR__.'/../views/LoginView.php');
         $content = ob_get_clean();
-
-        if(isset($_POST['user']) && isset($_POST['mdp'])) {
-           $this->connect();
-        }
 
         parent::render($include, $content);  
     }

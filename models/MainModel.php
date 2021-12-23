@@ -30,7 +30,7 @@ abstract class MainModel {
     }
 
     public function getOne($key, $value){
-        $sql = "SELECT * FROM ".$this->table." WHERE ".$key."=".$value;
+        $sql = "SELECT * FROM ".$this->table." WHERE ".$key."='".$value."'";
         $query = $this->connexion->prepare($sql);
         $query->execute();
         return $query->fetch();    
@@ -42,6 +42,7 @@ abstract class MainModel {
         $query->execute();
         return $query->fetchAll();    
     }
+
 }
 
 ?>

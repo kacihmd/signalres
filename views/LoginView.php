@@ -4,7 +4,7 @@
 <h1> Connexion </h1>
 
 <div class="formulaire">
-  <form method="post" action="####.php">
+  <form method="post">
   Nom d'utilisateur : <input type="text" name="user" placeholder="Enter Username" id="input"/> </br>
   Mot de passe : <input type="password" name="mdp" placeholder="Enter Password" id="input"/> </br> 
   <input type="submit" name="submit" value="Connexion" id="buttongreen"/>

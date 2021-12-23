@@ -15,12 +15,14 @@ class ResponsableController extends MainController {
     }
 
     public function render($include = null, $content = null) {
-        // Récupération de la ressources à signaler depuis le modèle
+        // Récupération des ressources du responsable
         $res = $this->resModel->getOne("iduser", $this->sessionId);
 
         $include = [['/views/css/responsable.css', 'stylesheet']];
 
-        // On génère la vue spécifique au signalement d'une ressource
+        echo($_SESSION['username']);
+
+        // On génère la vue spécifique à la page responsable
         ob_start();
         require(__DIR__.'/../views/ResponsableView.php');
         $content = ob_get_clean();

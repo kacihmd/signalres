@@ -8,6 +8,7 @@
             assert($title != NULL);
 
             $this->title = $title;
+            session_start();
         }
 
         // Cette fonction active le rendu de la page

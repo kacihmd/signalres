@@ -14,6 +14,24 @@ class LoginController extends MainController {
         $this->userModel = new UserModel();
     }
 
+    public function connect() {
+        // On regarde s'il y a un utilisateur de ce nom dans la base de données
+        $user = $this->userModel->getOne("username", $_POST['user']);
+
+        if (isset($user) && $user!=null) {
+
+            // Si le mot de passe est bien le bon
+            if (true) {
+                $_SESSION['username'] = $_POST['user'];
+
+                header('Location: http://192.168.76.76/responsable');    
+            }  
+        }
+        else {
+            //Problème de connexion
+        }
+    }
+
     public function render($include = null, $content = null) {
         // Récupération de la ressources à signaler depuis le modèle
         $users = $this->userModel->getAll();
@@ -25,8 +43,13 @@ class LoginController extends MainController {
         require(__DIR__.'/../views/LoginView.php');
         $content = ob_get_clean();
 
+        if(isset($_POST['user']) && isset($_POST['mdp'])) {
+           $this->connect();
+        }
+
         parent::render($include, $content);  
     }
+
 }
 
 ?>

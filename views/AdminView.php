@@ -40,7 +40,7 @@
 <h1> Nouvelle responsable :</h1>
 <div class="formulaire">
   <form method="post">
-  Nom du responsable : <input type="text" name="description" placeholder="Entrer une description de la ressource" id="input"/> </br>
+  Nom du responsable : <input type="text" name="username" placeholder="Entrer le nom du responsable" id="input"/> </br>
   <input type="submit" name="submit" value="Valider" id="buttongreen"/>
   </form>
 </div>

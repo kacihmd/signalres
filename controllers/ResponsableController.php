@@ -18,9 +18,6 @@ class ResponsableController extends MainController {
         if (isset($_SESSION['iduser']) && $_SESSION['iduser']!=null) {
 
             if(isset($_POST['description']) && isset($_POST['categorie']) && isset($_POST['localisation'])) {
-                printf($_POST['description']);
-                printf($_POST['categorie']);
-                echo($_POST['localisation']);
                 $this->resModel->addOne($_POST['description'], $_POST['categorie'], $_POST['localisation'], $_SESSION['iduser']);
             }
 

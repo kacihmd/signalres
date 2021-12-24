@@ -19,7 +19,7 @@
         $controller = new MenuController();
         $controller->render();
 
-    } else if ($url[1] == "signal") {
+    } else if ($url[1] == "signal" && isset($url[2])) {
         // Si l'utilisateur demande la page de signalement
         // Nous appellons le controlleur approprié
         require_once('controllers/SignalController.php');

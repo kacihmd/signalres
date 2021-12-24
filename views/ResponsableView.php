@@ -16,8 +16,6 @@
     </thead>
     <tbody>
         <?php
-            print_r($res);
-
             if ($res != null) {
               if (is_array($res[0])) {
                 foreach ($res as $ressource) {

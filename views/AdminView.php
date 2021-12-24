@@ -35,3 +35,12 @@
         </tr>
     </tbody>
 </table>
+
+<!-- Rajoute un nouveau responsable -->
+<h1> Nouvelle responsable :</h1>
+<div class="formulaire">
+  <form method="post">
+  Nom du responsable : <input type="text" name="description" placeholder="Entrer une description de la ressource" id="input"/> </br>
+  <input type="submit" name="submit" value="Valider" id="buttongreen"/>
+  </form>
+</div>

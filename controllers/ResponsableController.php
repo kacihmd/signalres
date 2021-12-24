@@ -15,17 +15,30 @@ class ResponsableController extends MainController {
     }
 
     public function render($include = null, $content = null) {
-        // Récupération des ressources du responsable
-        $res = $this->resModel->getOne("iduser", $_SESSION['iduser']);
+        if (isset($_SESSION['iduser']) && $_SESSION['iduser']!=null) {
 
-        $include = [['/views/css/responsable.css', 'stylesheet']];
+            if(isset($_POST['description']) && isset($_POST['categorie']) && isset($_POST['localisation'])) {
+                printf($_POST['description']);
+                printf($_POST['categorie']);
+                echo($_POST['localisation']);
+                $this->resModel->addOne($_POST['description'], $_POST['categorie'], $_POST['localisation'], $_SESSION['iduser']);
+            }
 
-        // On génère la vue spécifique à la page responsable
-        ob_start();
-        require(__DIR__.'/../views/ResponsableView.php');
-        $content = ob_get_clean();
+            // Récupération des ressources du responsable
+            $res = $this->resModel->getValues("iduser", $_SESSION['iduser']);
 
-        parent::render($include, $content);  
+            $include = [['/views/css/responsable.css', 'stylesheet']];
+
+            // On génère la vue spécifique à la page responsable
+            ob_start();
+            require(__DIR__.'/../views/ResponsableView.php');
+            $content = ob_get_clean();
+
+            parent::render($include, $content);  
+        }
+        else {
+            header('Location: http://192.168.76.76/menu');
+        }
     }
 }
 

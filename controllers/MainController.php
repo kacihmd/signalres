@@ -18,7 +18,7 @@
 
             if(isset($_SESSION['iduser']) && $_SESSION['iduser']!=null) {
                 $session=true;
-                if($_SESSION['iduser']==0) {
+                if($_SESSION['iduser']==1) {
                     $admin=true;
                 }
             }

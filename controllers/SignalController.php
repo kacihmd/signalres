@@ -2,11 +2,13 @@
 
 require_once('MainController.php');
 require_once(__DIR__.'/../models/ResModel.php');
+require_once(__DIR__.'/../models/SignalModel.php');
 // require_once(__DIR__.'/../models/SignalModel.php');
 
 class SignalController extends MainController {
 
     private ResModel $resModel;
+    private SignalModel $sigModel;
     private int $resId;
 
     public function __construct(int $resId) {
@@ -14,6 +16,7 @@ class SignalController extends MainController {
         parent::__construct("Signaler un problème...");
 
         $this->resModel = new ResModel();
+        $this->sigModel = new SignalModel();
         $this->resId = $resId;
     }
 
@@ -21,6 +24,11 @@ class SignalController extends MainController {
         // Récupération de la ressources à signaler depuis le modèle
         $res = $this->resModel->getOne("idres", $this->resId);
         
+        if(isset($_POST['anomalie'])) {
+            echo("TESTTEST");
+            $this->sigModel->addOne($this->resId, $_POST['anomalie']);
+        }
+
         $include = [['/views/css/signal.css', 'stylesheet']];
 
         // On génère la vue spécifique au signalement d'une ressource

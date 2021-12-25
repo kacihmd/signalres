@@ -6,7 +6,7 @@
 
 </div>
 
-<form method="post" action="####.php">
+<form method="post">
     <label for="anomalie">Description de l'anomalie :</label>
     <input type="text" name="anomalie" 
            placeholder="Racontez nous ce qu'il se passe !" id="input"/> 

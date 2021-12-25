@@ -15,7 +15,7 @@ class AdminController extends MainController {
     }
 
     public function render($include = null, $content = null) {
-        if ($_SESSION['username']=='admin' && $_SESSION['iduser']==0) {
+        if ($_SESSION['username']=='admin' && $_SESSION['iduser']==1) {
 
             if(isset($_POST['username'])){
                 $this->userModel->addOne($_POST['username'], "password");

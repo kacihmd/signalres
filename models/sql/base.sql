@@ -1,7 +1,7 @@
 -- TABLE UTILISATEURS : ADMIN A L'ID 0
 
 CREATE TABLE users (
-    iduser INT PRIMARY KEY NOT NULL,
+    iduser INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     username VARCHAR(50),
     mdp VARCHAR(25)
 );
@@ -36,12 +36,12 @@ AS SELECT res.idres, descprobl, categorie, iduser FROM anomalie, res WHERE anoma
 -- INSERTIONS DES UTILISATEURS 
 
 INSERT INTO `users` (`iduser`, `username`, `mdp`) VALUES
-(0, 'admin', 'password'),
-(1, 'Kevin Kennedy', 'password'),
-(2, 'Lucy Lavie', 'password'),
-(3, 'Michel Marie', 'password'),
-(4, 'Jean Jean', 'password'),
-(5, 'Dominique Dubois', 'password');
+(NULL, 'admin', 'password'),
+(NULL, 'Kevin Kennedy', 'password'),
+(NULL, 'Lucy Lavie', 'password'),
+(NULL, 'Michel Marie', 'password'),
+(NULL, 'Jean Jean', 'password'),
+(NULL, 'Dominique Dubois', 'password');
 
 -- INSERTIONS DES RESSOURCES
 

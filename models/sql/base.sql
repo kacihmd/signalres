@@ -1,3 +1,8 @@
+DROP TABLE IF EXISTS anomalie;
+DROP TABLE IF EXISTS res;
+DROP TABLE IF EXISTS users;
+DROP VIEW IF EXISTS tickets;
+
 -- TABLE UTILISATEURS : ADMIN A L'ID 0
 
 CREATE TABLE users (
@@ -16,6 +21,7 @@ CREATE TABLE res (
     iduser INT,
     CONSTRAINT FK_iduserres FOREIGN KEY (iduser)
     REFERENCES users(iduser)
+    ON DELETE CASCADE
 );
 
 -- TABLE ANOMALIES
@@ -26,6 +32,7 @@ CREATE TABLE anomalie (
     PRIMARY KEY(idres, descprobl),
     CONSTRAINT FK_idresanomalie FOREIGN KEY (idres)
     REFERENCES res(idres)
+    ON DELETE CASCADE
 );
 
 -- VUE TICKETS

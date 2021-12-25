@@ -44,6 +44,19 @@
         require_once('controllers/ResponsableController.php');
         $controller = new ResponsableController();
         $controller->render();
+    } else if ($url[1] == "deploy") {
+
+        // Ca fonctionne : ( A voir si on met pas un bouton quelque part sur le site..)
+
+        require_once('models/ResModel.php');
+
+        $deploy = new ResModel();
+
+        $sql = file_get_contents('models/sql/base.sql');
+
+        $query = $deploy->connexion->prepare($sql);
+        $query->execute();
+
     } else {
         // Sinon l'utilisateur est perdu (pour l'instant)
         http_response_code(404);

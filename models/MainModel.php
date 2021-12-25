@@ -53,8 +53,7 @@ abstract class MainModel {
     public function deleteOne($key, $value){
         $sql = "DELETE FROM ".$this->table." WHERE ".$key."='".$value."'";
         $query = $this->connexion->prepare($sql);
-        $query->execute();
-        return $query->fetch();    
+        $query->execute();   
     }
 
 }

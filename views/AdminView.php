@@ -22,8 +22,16 @@
                     echo('<tr>  
                     <td>'.$user[0].'</td>
                     <td>'.$user[1].'</td>
-                    <td>Modifier</td>
-                    <td>Supprimer</td></tr>');
+                    <td>
+                    <form method="post">
+                    <input type="hidden" name="usertodelete" value="'.$user[0].'"/> 
+                    <input type="submit" name="submit" value="Modifier" id="buttongreentable"/> </form>
+                    </td>
+                    <td>
+                    <form method="post">
+                    <input type="hidden" name="usertodelete" value="'.$user[0].'"/> 
+                    <input type="submit" name="submit" value="Supprimer" id="buttonred"/> </form>
+                    </td> </tr>');
                 }
             }
         ?>

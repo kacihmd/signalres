@@ -21,6 +21,10 @@ class AdminController extends MainController {
                 $this->userModel->addOne($_POST['username'], "password");
             }
 
+            if(isset($_POST['usertodelete'])){
+                $this->userModel->deleteOne("iduser", $_POST['usertodelete']);
+            }
+
             // Récupération de tout les utilisateurs
             $users = $this->userModel->getAll();
 

@@ -43,9 +43,9 @@ ln -s $apache2conf/sites-available/signalres.conf
 
 systemctl restart apache2.service
 
-echo "--- Initialisation de la Base de données ---"
-
+echo -e "--- Initialisation de la Base de données ---\n"
+echo "Remplissage par les données de test (sql/base.sql)..."
 cd /var/www/signalres/deploy
 mysql --user=projet --password=tejorp projet < sql/base.sql
 
-echo "Déploiement du projet SignalRes : Fini !"
+echo -e "\nDéploiement du projet SignalRes : Fini !\n"

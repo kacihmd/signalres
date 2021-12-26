@@ -32,18 +32,28 @@
         require_once('controllers/LoginController.php');
         $controller = new LoginController();
         $controller->render();
+
+    } else if ($url[1] == "logout") {
+        // Si l'utilisateur demande la page de connexion
+        // Nous appellons le controlleur approprié
+        require_once('controllers/LoginController.php');
+        $controller = new LoginController();
+        $controller->disconnect();
+    
     } else if ($url[1] == "admin") {
         // Si l'utilisateur demande la page de signalement
         // Nous appellons le controlleur approprié
         require_once('controllers/AdminController.php');
         $controller = new AdminController();
         $controller->render();
-    } else if ($url[1] == "responsable") {
+
+    } else if ($url[1] == "ressource") {
         // Si l'utilisateur demande la page de signalement
         // Nous appellons le controlleur approprié
-        require_once('controllers/ResponsableController.php');
-        $controller = new ResponsableController();
+        require_once('controllers/ResController.php');
+        $controller = new ResController();
         $controller->render();
+        
     } else if ($url[1] == "deploy") {
 
         // Ca fonctionne : ( A voir si on met pas un bouton quelque part sur le site..)
@@ -52,7 +62,7 @@
 
         $deploy = new ResModel();
 
-        $sql = file_get_contents('models/sql/base.sql');
+        $sql = file_get_contents('deploy/sql/base.sql');
 
         $query = $deploy->connexion->prepare($sql);
         $query->execute();

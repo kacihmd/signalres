@@ -25,7 +25,8 @@ class LoginController extends MainController {
                 $_SESSION['username'] = $_POST['user'];
                 $_SESSION['iduser'] = $user['iduser'];
 
-                header('Location: http://192.168.76.76/responsable');    
+                header('Location: /ressource'); 
+                exit;   
             }  
         }
         else {
@@ -33,12 +34,23 @@ class LoginController extends MainController {
         }
     }
 
+    public function disconnect() {
+        session_destroy();
+        header('Location: /');
+        exit;
+    }
+
     public function render($include = null, $content = null) {
+        if(isset($_SESSION['username'])) {
+            header('Location: /'); 
+            exit;
+        }
+
         if(isset($_POST['user']) && isset($_POST['mdp'])) {
             $this->connect();
         }
 
-        $include = [['/views/css/login.css', 'stylesheet']];
+        $include = [['/public/css/login.css', 'stylesheet']];
 
         // On génère la vue spécifique au signalement d'une ressource
         ob_start();

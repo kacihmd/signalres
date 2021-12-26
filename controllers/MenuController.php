@@ -12,7 +12,7 @@ class MenuController extends MainController {
         // Récupération de la ressources à signaler depuis le modèle
         //$allRes = $this->resModel->getOne();
 
-        $includes = [['views/css/menu.css', 'stylesheet']];
+        $includes = [['public/css/menu.css', 'stylesheet']];
 
         // On génère la vue spécifique au signalement d'une ressource
         ob_start();

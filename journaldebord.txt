@@ -10,3 +10,12 @@ J'ai avancé un peu, c'est vrai qu'il y a pas mal de boulot, demain je m'y met a
 // 
 
 Attention : getOne vraiment getOne ?? -> car quand on veut toutes les ressources d'un responsable on fait un getOne
+
+//
+
+J'ai rennomé les pages Responsable en Ressources parcequ'on accède aux différentes ressources.
+et Responsable en page Admin.
+J'ai ajouté un bouton déconnexion lorsque l'on est connecté.
+
+J'ai bougé les dossiers css et images dans public
+et deploy.sh et sql dans deploy

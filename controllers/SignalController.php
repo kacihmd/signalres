@@ -29,7 +29,7 @@ class SignalController extends MainController {
             $this->sigModel->addOne($this->resId, $_POST['anomalie']);
         }
 
-        $include = [['/views/css/signal.css', 'stylesheet']];
+        $include = [['/public/css/signal.css', 'stylesheet']];
 
         // On génère la vue spécifique au signalement d'une ressource
         ob_start();

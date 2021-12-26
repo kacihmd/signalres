@@ -28,7 +28,7 @@ class AdminController extends MainController {
             // Récupération de tout les utilisateurs
             $users = $this->userModel->getAll();
 
-            $include = [['/views/css/admin.css', 'stylesheet']];
+            $include = [['/public/css/admin.css', 'stylesheet']];
 
             // On génère la vue spécifique au signalement d'une ressource
             ob_start();
@@ -36,9 +36,9 @@ class AdminController extends MainController {
             $content = ob_get_clean();
 
             parent::render($include, $content);  
-        }
-        else {
-            header('Location: http://192.168.76.76/');
+            
+        } else {
+            header('Location: /');
         }
     }
 }

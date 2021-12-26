@@ -20,7 +20,7 @@ class SignalController extends MainController {
         $this->resId = $resId;
     }
 
-    public function render($include = null, $content = null) {
+    public function render($cssIncludes = null, $jsIncludes = null, $content = null) { 
         // Récupération de la ressources à signaler depuis le modèle
         $res = $this->resModel->getOne("idres", $this->resId);
         
@@ -29,14 +29,14 @@ class SignalController extends MainController {
             $this->sigModel->addOne($this->resId, $_POST['anomalie']);
         }
 
-        $include = [['/public/css/signal.css', 'stylesheet']];
+        $cssIncludes = ['/public/css/signal.css'];
 
         // On génère la vue spécifique au signalement d'une ressource
         ob_start();
         require(__DIR__.'/../views/SignalView.php');
         $content = ob_get_clean();
 
-        parent::render($include, $content);  
+        parent::render($cssIncludes, null, $content);  
     }
 }
 

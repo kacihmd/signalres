@@ -29,21 +29,48 @@
         }
     }
 
-    if ($url[1] == "logout") {
+    if ($url[1] === "logout") {
         require_once('controllers/LoginController.php');
         $controller = new LoginController();
         $controller->disconnect();
         exit;
     }
 
-    if ($url[1] == "signal" && isset($url[2])) {
+    if ($url[1] === "signal" && isset($url[2])) {
         require_once('controllers/SignalController.php');
         $controller = new SignalController($url[2]);
         $controller->render();
         exit;
     }
 
-    if ($url[1] == "deploy") {
+    if ($url[1] === "delete" && isset($url[2])) {
+        require_once('controllers/AdminController.php');
+        if ($url[2] === "user") {
+            $controller = new AdminController($url[2]);
+            $controller->deleteUser();
+        }
+        exit;
+    }
+
+    if ($url[1] === "update" && isset($url[2])) {
+        require_once('controllers/AdminController.php');
+        if ($url[2] === "user") {
+            $controller = new AdminController($url[2]);
+            $controller->updateUser();
+        }
+        exit;
+    }
+
+    if ($url[1] === "add" && isset($url[2])) {
+        require_once('controllers/AdminController.php');
+        if ($url[2] === "user") {
+            $controller = new AdminController($url[2]);
+            $controller->addUser();
+        }
+        exit;
+    }
+
+    if ($url[1] === "deploy") {
         require_once('models/ResModel.php');
         $deploy = new ResModel();
         $sql = file_get_contents('deploy/sql/base.sql');

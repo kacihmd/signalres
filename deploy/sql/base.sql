@@ -44,11 +44,11 @@ AS SELECT res.idres, descprobl, categorie, iduser FROM anomalie, res WHERE anoma
 
 INSERT INTO `users` (`iduser`, `username`, `mdp`) VALUES
 (NULL, 'admin', 'password'),
-(NULL, 'Kevin Kennedy', 'password'),
-(NULL, 'Lucy Lavie', 'password'),
-(NULL, 'Michel Marie', 'password'),
-(NULL, 'Jean Jean', 'password'),
-(NULL, 'Dominique Dubois', 'password');
+(NULL, 'KevinKennedy', 'password'),
+(NULL, 'LucyLavie', 'password'),
+(NULL, 'MichelMarie', 'password'),
+(NULL, 'JeanJean', 'password'),
+(NULL, 'DominiqueDubois', 'password');
 
 -- INSERTIONS DES RESSOURCES
 

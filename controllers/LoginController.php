@@ -40,8 +40,7 @@ class LoginController extends MainController {
         exit;
     }
 
-    public function render($include = null, $content = null) {
-        if(isset($_SESSION['username'])) {
+    public function render($cssIncludes = null, $jsIncludes = null, $content = null) {        if(isset($_SESSION['username'])) {
             header('Location: /'); 
             exit;
         }
@@ -50,14 +49,14 @@ class LoginController extends MainController {
             $this->connect();
         }
 
-        $include = [['/public/css/login.css', 'stylesheet']];
+        $cssIncludes = ['/public/css/login.css'];
 
         // On génère la vue spécifique au signalement d'une ressource
         ob_start();
         require(__DIR__.'/../views/LoginView.php');
         $content = ob_get_clean();
 
-        parent::render($include, $content);  
+        parent::render($cssIncludes, null, $content);  
     }
 
 }

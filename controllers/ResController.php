@@ -14,7 +14,7 @@ class ResController extends MainController {
 
     }
 
-    public function render($include = null, $content = null) {
+    public function render($cssInclude = null, $jsInclude = null, $content = null) {
         if (isset($_SESSION['iduser']) && $_SESSION['iduser'] != null) {
 
             if (isset($_POST['description']) 
@@ -34,14 +34,14 @@ class ResController extends MainController {
                 $res = $this->resModel->getValues("iduser", $_SESSION['iduser']);
             }
 
-            $include = [['/public/css/ressource.css', 'stylesheet']];
+            $cssInclude = ['/public/css/ressource.css'];
 
             // On génère la vue spécifique à la page responsable
             ob_start();
             require(__DIR__.'/../views/ResView.php');
             $content = ob_get_clean();
 
-            parent::render($include, $content);  
+            parent::render($cssInclude, null, $content);  
         }
         else {
             header('Location: /');

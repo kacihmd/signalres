@@ -12,7 +12,7 @@
         }
 
         // Cette fonction active le rendu de la page
-        protected function render($includes, $content) {
+        protected function render($cssIncludes, $jsIncludes, $content) {
             $session=false;
             $admin=false;
 

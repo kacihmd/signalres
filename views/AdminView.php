@@ -1,63 +1,61 @@
 <!-- Vue de la page administrateur -->
+ <!-- Affiche tous les responsables -->
 
-  <!-- Affiche tout les responsables -->
+    <fieldset id="updateUser" class=formulaire>
 
-  <h1> Administration </h1>
+    <legend>Modifier un Responsable</legend>
 
-<table>
-    <thead>
-        <tr>
-            <th colspan="2">Responsables</th>
-            <th colspan="2" rowspan="2">Actions</th>
-        </tr>
-        <tr>
-            <th colspan="1">IdUser</th>
-            <th colspan="1">UserName</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-            if ($users != null) {
-                foreach ($users as $user) {
-                    echo('<tr>
-                    <form method="post">');
+        <table>
+            <tbody>
+                <?php
+                    if ($users != null) {
+                        foreach ($users as $user) {
+                            echo('
+                                <tr>
+                                <td>'.$user[1].'</td>
+                                </tr>'
+                            );
+                        }
+                    }
+                ?>
+            </tbody>
+        </table>
 
-                    // IL FAUT FAIRE CA EN JAVASCRIPT POUR QUE CA SOIT MIEUX
+        <div class="modification">
+            <form action="/update/user" method="post">
+                <fieldset>
+                    <input type="text" name="username" 
+                        placeholder="Nom d'Utilisateur" size="10" />
+                    <input type="text" name="password" 
+                        placeholder="Mot de Passe" size="10"/>
 
-                    // if(isset($_POST['usertomodify']) && $_POST['usertomodify']==$user[0]) {
-                    //     $nameofbutton='Valider';
-                    //     echo('<td>'.$user[0].'</td>
-                    //     <td> <input type="text" name="usermodify" value="'.$user[1].'"/> </td>');
-                    // }
-                    // else {
+                    <input class="hidden_id_input" type="hidden" name="id" value=""/>
+                    <input type="submit" value="Modifier"/>
+                </fieldset>
+            </form>
 
-                        $nameofbutton='Modifier';
-                        echo('
-                        <td>'.$user[0].'</td>
-                        <td>'.$user[1].'</td>');
-                        
-                    // }
-                    echo('
-                    <td>
-                    <input type="hidden" name="usertomodify" value="'.$user[0].'"/> 
-                    <input type="submit" name="submit" value="'.$nameofbutton.'" id="buttongreentable"/> </form>
-                    </td>
-                    <td>
-                    <form method="post">
-                    <input type="hidden" name="usertodelete" value="'.$user[0].'"/> 
-                    <input type="submit" name="submit" value="Supprimer" id="buttonred"/> </form>
-                    </td> </tr>');
-                }
-            }
-        ?>
-    </tbody>
-</table>
+            <form action="/delete/user" method="post">
+                <fieldset>
+                    <input class="hidden_id_input" type="hidden" name="id"/>
+                    <input type="submit" value="Supprimer"/>
+                </fieldset>
+            </form>
+        </div>
 
-<!-- Rajoute un nouveau responsable -->
-<h1> Nouvelle responsable :</h1>
-<div class="formulaire">
-  <form method="post">
-  Nom du responsable : <input type="text" name="username" placeholder="Entrer le nom du responsable" id="input"/> </br>
-  <input type="submit" name="submit" value="Valider" id="buttongreen"/>
-  </form>
-</div>
+    </fieldset>
+
+    <div class="formulaire">
+    <!-- Rajoute un nouveau responsable -->
+    <form method="post" action="/add/user" id="addUser">
+        <fieldset>
+            <legend>Ajouter un responsable</legend>
+            <label for="username"> Nom du responsable </label>
+            <input type="text" name="username"/> 
+            <br>      
+            <label for="password"> Mot de passe du responsable </label>
+            <input type="text" name="password"/>
+            <br>
+            <input type="submit" value="Ajouter"/>
+        </fieldset>
+    </form>
+    </div>

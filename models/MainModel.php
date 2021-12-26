@@ -56,6 +56,32 @@ abstract class MainModel {
         $query->execute();   
     }
 
+    // key et value servent à identifier l'élément à modifier
+    // keys et values sont les entrées à modifier
+    public function updateOne($key, $value, $keys, $values) {
+
+        $n = count($keys);
+
+        // On ne fait rien si il n'y a pas le même nombre de clés et de valeurs
+        // Ou si il n'y a rien à modifier
+        if ($n != count($values) || $n < 1) {
+            return;
+        }
+
+        $set = "";
+        for ($i = 0; $i < $n; ++$i) {
+            $set = $set . $keys[$i] . "='" . $values[$i] . "' ";
+            if ($i < $n - 1) {
+                $set = $set . " , ";
+            }
+        }
+
+        $sql = "UPDATE ".$this->table." SET ".$set." WHERE ".$key."='".$value."';";
+        // echo($sql);
+        $query = $this->connexion->prepare($sql);
+        $query->execute();
+    }
+
 }
 
 ?>

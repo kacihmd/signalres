@@ -10,9 +10,14 @@
         <link href="/public/css/main.css" rel="stylesheet" />
 
         <?php
-            if ($includes != null) {
-                foreach ($includes as $file) {
-                    echo('<link href="'.$file[0].'" rel="'.$file[1].'">');
+            if ($cssIncludes != null) {
+                foreach ($cssIncludes as $file) {
+                    echo('<link href="'.$file.'" rel="stylesheet">');
+                }
+            }
+            if ($jsIncludes != null) {
+                foreach ($jsIncludes as $file) {
+                    echo('<script type="text/javascript" src="'.$file.'"></script>');
                 }
             }
         ?>

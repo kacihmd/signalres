@@ -19,13 +19,26 @@
         <?php
             if ($users != null) {
                 foreach ($users as $user) {
-                    echo('<tr>  
-                    <td>'.$user[0].'</td>
-                    <td>'.$user[1].'</td>
+                    echo('<tr>
+                    <form method="post">');
+
+                    // IL FAUT FAIRE CA EN JAVASCRIPT POUR QUE CA SOIT MIEUX
+
+                    if(isset($_POST['usertomodify']) && $_POST['usertomodify']==$user[0]) {
+                        $nameofbutton='Valider';
+                        echo('<td>'.$user[0].'</td>
+                        <td> <input type="text" name="usermodify" value="'.$user[1].'"/> </td>');
+                    }
+                    else {
+                        $nameofbutton='Modifier';
+                        echo('
+                        <td>'.$user[0].'</td>
+                        <td>'.$user[1].'</td>');
+                    }
+                    echo('
                     <td>
-                    <form method="post">
-                    <input type="hidden" name="usertodelete" value="'.$user[0].'"/> 
-                    <input type="submit" name="submit" value="Modifier" id="buttongreentable"/> </form>
+                    <input type="hidden" name="usertomodify" value="'.$user[0].'"/> 
+                    <input type="submit" name="submit" value="'.$nameofbutton.'" id="buttongreentable"/> </form>
                     </td>
                     <td>
                     <form method="post">

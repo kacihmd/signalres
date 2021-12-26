@@ -73,7 +73,7 @@
     if ($url[1] === "deploy") {
         require_once('models/ResModel.php');
         $deploy = new ResModel();
-        $sql = file_get_contents('deploy/sql/base.sql');
+        $sql = file_get_contents('deploy/base.sql');
         $query = $deploy->connexion->prepare($sql);
         $query->execute();
         exit;

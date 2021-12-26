@@ -43,4 +43,9 @@ ln -s $apache2conf/sites-available/signalres.conf
 
 systemctl restart apache2.service
 
+echo "--- Initialisation de la Base de données ---"
+
+cd /var/www/signalres/deploy
+mysql --user=projet --password=tejorp projet < sql/base.sql
+
 echo "Déploiement du projet SignalRes : Fini !"

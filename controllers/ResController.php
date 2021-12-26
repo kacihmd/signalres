@@ -34,7 +34,7 @@ class ResController extends MainController {
                 $res = $this->resModel->getValues("iduser", $_SESSION['iduser']);
             }
 
-            $include = [['/public/css/responsable.css', 'stylesheet']];
+            $include = [['/public/css/ressource.css', 'stylesheet']];
 
             // On génère la vue spécifique à la page responsable
             ob_start();

@@ -24,17 +24,19 @@
 
                     // IL FAUT FAIRE CA EN JAVASCRIPT POUR QUE CA SOIT MIEUX
 
-                    if(isset($_POST['usertomodify']) && $_POST['usertomodify']==$user[0]) {
-                        $nameofbutton='Valider';
-                        echo('<td>'.$user[0].'</td>
-                        <td> <input type="text" name="usermodify" value="'.$user[1].'"/> </td>');
-                    }
-                    else {
+                    // if(isset($_POST['usertomodify']) && $_POST['usertomodify']==$user[0]) {
+                    //     $nameofbutton='Valider';
+                    //     echo('<td>'.$user[0].'</td>
+                    //     <td> <input type="text" name="usermodify" value="'.$user[1].'"/> </td>');
+                    // }
+                    // else {
+
                         $nameofbutton='Modifier';
                         echo('
                         <td>'.$user[0].'</td>
                         <td>'.$user[1].'</td>');
-                    }
+                        
+                    // }
                     echo('
                     <td>
                     <input type="hidden" name="usertomodify" value="'.$user[0].'"/> 
@@ -48,12 +50,6 @@
                 }
             }
         ?>
-        <tr>
-            <td>0</td>
-            <td>admin</td>
-            <td>Modifier</td>
-            <td>Supprimer</td>
-        </tr>
     </tbody>
 </table>
 

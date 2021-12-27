@@ -2,16 +2,34 @@
 
 <div class="ressource">
 
-    <?= $res['categorie'] ?>
+    <ul>
+        <li>Description : <?= $res['description'] ?></li>
+        <li>Catégorie : <?= $res['categorie'] ?></li>
+        <li>Localisation : <?= $res['localisation'] ?></li>
+    </ul>
 
 </div>
 
-<form method="post">
-    <label for="anomalie">Description de l'anomalie :</label>
-    <input type="text" name="anomalie" 
-           placeholder="Racontez nous ce qu'il se passe !" id="input"/> 
-    <br>
-    <input type="submit" name="submit" value="Signaler" id="buttongreen"/>
+<form method="POST" action="/add/signal/<?= $res['idres'] ?>">
+
+    <?php if (isset($anomaliesOfRes)) {?>
+        <label for="resp">Selectionnez votre problème dans la liste : </label>
+        <select name="idAnomalie" id="anoSelect">
+            <?php
+                foreach ($anomaliesOfRes as $value) {
+                    echo('<option value="'.$value['idanomalie'].'">'.$value['descprobl'].'</option>');
+                }
+            ?>
+            <option value=""> Je ne trouve pas mon problème :( </option>
+        </select>
+        <br>
+    <?php } ?>
+    
+    <label for="newAnomalie">Si vous ne trouvez pas votre bonheur, pas de soucis...</label>
+    <input type="text" name="newAnomalie" id="newAnomalie"
+           placeholder="Racontez nous ce qu'il se passe !" size="30"/> 
+    <input type="submit" name="submit" value="Signaler"/>
+
 </form>
 
   

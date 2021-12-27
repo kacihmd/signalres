@@ -4,14 +4,36 @@
     class SignalModel extends MainModel {
 
         function __construct() {
-            parent::__construct("anomalie");
+            parent::__construct("tickets");
         }
         
-        public function addOne($idres, $desc){
-            $sql = "INSERT INTO ".$this->table." VALUES (".$idres.",'".$desc."')";
+        // Créer un nouveau ticket.
+        public function addTicket(int $idres, int $idano){
+
+            $sql = "INSERT INTO ".$this->table.
+                    " VALUES (NULL, ".$idres.",".$idano.", NULL);";
+
             $query = $this->connexion->prepare($sql);
             $query->execute();    
         }
-    
+
+        public function addAnomalie(String $cat, String $descprob) {
+            $sql = "INSERT INTO anomalie VALUES (NULL, ".$cat.", ".$descprob.");";
+            $query = $this->connexion->prepare($sql);
+            $query->execute();
+
+            // Retourne l'identifiant de l'anomalie ajoutée
+            $sql = "SELECT MAX(idanomalie) FROM anomalie;";
+            $query = $this->connexion->prepare($sql);
+            $query->execute();
+            return intval($query->fetch(PDO::FETCH_NUM)[0]);  
+        }
+
+        public function getAnomaliesOfCategory(String $category) {
+            $sql = "SELECT idanomalie, descprobl FROM anomalie WHERE categorie='".$category."';";
+            $query = $this->connexion->prepare($sql);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);  
+        }
     }
 ?>

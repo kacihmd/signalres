@@ -23,7 +23,8 @@ abstract class MainModel {
         // On essaie de se connecter à la base
         try{
             $this->connexion = new PDO("mysql:host=" . $this->host . 
-                    ";dbname=" . $this->db_name, $this->username, $this->password);
+                    ";dbname=" . $this->db_name, $this->username, $this->password,
+                    array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
         } catch(PDOException $exception){
             echo "Erreur de connexion : " . $exception->getMessage();
         }

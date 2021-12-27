@@ -17,7 +17,8 @@
         ["menu", "MenuController"],
         ["login", "LoginController"],
         ["admin", "AdminController"],
-        ["ressource", "ResController"]
+        ["ressource", "ResController"],
+        ["tickets", "TicketsController"]
     ];
 
     foreach ($pages as $page) {
@@ -36,9 +37,9 @@
         exit;
     }
 
-    if ($url[1] === "signal" && isset($url[2])) {
+    if ($url[1] === "signal" && isset($url[2]) && is_numeric($url[2])) {
         require_once('controllers/SignalController.php');
-        $controller = new SignalController($url[2]);
+        $controller = new SignalController(intval($url[2]));
         $controller->render();
         exit;
     }
@@ -81,6 +82,11 @@
             require_once('controllers/ResController.php');
             $controller = new ResController();
             $controller->addRes();
+        }
+        if ($url[2] === "signal" && isset($url[3]) && is_numeric($url[3])) {
+            require_once('controllers/SignalController.php');
+            $controller = new SignalController(intval($url[3]));
+            $controller->addSignal();
         }
         exit;
     }

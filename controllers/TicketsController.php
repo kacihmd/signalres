@@ -10,7 +10,7 @@ class TicketsController extends MainController {
     public function __construct() {
 
         parent::__construct("Gestion des Tickets");
-        $this->ticketsModel = new ResModel();
+        $this->ticketsModel = new TicketsModel();
 
     }
 
@@ -22,10 +22,10 @@ class TicketsController extends MainController {
 
         if ($_SESSION['username'] === 'admin') {
             // Récupération de tous les tickets
-            $res = $this->ticketsModel->getAll();
+            $tickets = $this->ticketsModel->getAll();
         } else {
             // Récupération des tickets du responsable
-            $res = $this->ticketsModel->getValues("iduser", $_SESSION['iduser']);   
+            $tickets = $this->ticketsModel->getValues("iduser", $_SESSION['iduser']);   
         }
 
         $cssIncludes = ['/public/css/res.css'];
@@ -33,7 +33,7 @@ class TicketsController extends MainController {
 
         // On génère la vue spécifique à la page responsable
         ob_start();
-        require(__DIR__.'/../views/ResView.php');
+        require(__DIR__.'/../views/TicketsView.php');
         $content = ob_get_clean();
 
         parent::render($cssIncludes, $jsIncludes, $content);  

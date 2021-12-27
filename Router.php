@@ -44,28 +44,43 @@
     }
 
     if ($url[1] === "delete" && isset($url[2])) {
-        require_once('controllers/AdminController.php');
         if ($url[2] === "user") {
-            $controller = new AdminController($url[2]);
+            require_once('controllers/AdminController.php');
+            $controller = new AdminController();
             $controller->deleteUser();
+        }
+        if ($url[2] === "res") {
+            require_once('controllers/ResController.php');
+            $controller = new ResController();
+            $controller->deleteRes();
         }
         exit;
     }
 
     if ($url[1] === "update" && isset($url[2])) {
-        require_once('controllers/AdminController.php');
         if ($url[2] === "user") {
-            $controller = new AdminController($url[2]);
+            require_once('controllers/AdminController.php');
+            $controller = new AdminController();
             $controller->updateUser();
+        }
+        if ($url[2] === "res") {
+            require_once('controllers/ResController.php');
+            $controller = new ResController();
+            $controller->updateRes();
         }
         exit;
     }
 
     if ($url[1] === "add" && isset($url[2])) {
-        require_once('controllers/AdminController.php');
         if ($url[2] === "user") {
-            $controller = new AdminController($url[2]);
+            require_once('controllers/AdminController.php');
+            $controller = new AdminController();
             $controller->addUser();
+        }
+        if ($url[2] === "res") {
+            require_once('controllers/ResController.php');
+            $controller = new ResController();
+            $controller->addRes();
         }
         exit;
     }

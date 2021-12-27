@@ -13,5 +13,12 @@
             $query->execute();    
         }
 
+        public function getUsernames() {
+            $sql = "SELECT username FROM " . $this->table;
+            $query = $this->connexion->prepare($sql);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_NUM);
+        }
+
     }
 ?>

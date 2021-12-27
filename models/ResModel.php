@@ -12,5 +12,24 @@
             $query = $this->connexion->prepare($sql);
             $query->execute();    
         }
+
+        public function getAll(){
+            $sql = 'SELECT idres, description, categorie, localisation, 
+                    username FROM res, users WHERE res.iduser = users.iduser;';
+
+            $query = $this->connexion->prepare($sql);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);    
+        }
+    
+        public function getValues($key, $value){
+            $sql = 'SELECT idres, description, categorie, localisation, username 
+                    FROM res, users WHERE res.iduser = users.iduser &&'
+                    .$key."='".$value."';";
+            $query = $this->connexion->prepare($sql);
+            $query->execute();
+            return $query->fetchAll();    
+        }
+
     }
 ?>

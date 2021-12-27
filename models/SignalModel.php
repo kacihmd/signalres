@@ -18,7 +18,7 @@
         }
 
         public function addAnomalie(String $cat, String $descprob) {
-            $sql = "INSERT INTO anomalie VALUES (NULL, ".$cat.", ".$descprob.");";
+            $sql = "INSERT INTO anomalie VALUES (NULL, '".$cat."', '".$descprob."');";
             $query = $this->connexion->prepare($sql);
             $query->execute();
 

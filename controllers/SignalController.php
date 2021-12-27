@@ -23,8 +23,24 @@ class SignalController extends MainController {
     }
 
     public function addSignal() {
-        $this->signalModel->addTicket(1, 1);
-        header('Location: /signal/'.$this->idRes.'/?success=1');
+        if (isset($_POST['idAnomalie']) && is_numeric($_POST['idAnomalie'])
+            && !isset($_POST['newAnomalie'])) {
+
+            $idAnomalie = intval($_POST['idAnomalie']);
+            if ($idAnomalie > 0) {
+                $this->signalModel->addTicket($this->idRes, $idAnomalie);
+            }
+
+        } else if (isset($_POST['newAnomalie'])) {
+            $res = $this->resModel->getOne("idres", $this->idRes);
+
+            $idAnomalie = $this->signalModel->addAnomalie($res['categorie'], 
+            filter_var(substr($_POST['newAnomalie'], 0, 100), FILTER_SANITIZE_STRING));
+
+            $this->signalModel->addTicket($this->idRes, $idAnomalie);
+        }
+
+        header('Location: /signal/'.$this->idRes);
     }
 
     public function render($cssIncludes = null, $jsIncludes = null, $content = null) { 

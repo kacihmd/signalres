@@ -20,7 +20,7 @@
                     echo('<option value="'.$value['idanomalie'].'">'.$value['descprobl'].'</option>');
                 }
             ?>
-            <option value=""> Je ne trouve pas mon problème :( </option>
+            <option value="0"> Je ne trouve pas mon problème :( </option>
         </select>
         <br>
     <?php } ?>

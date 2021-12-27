@@ -24,12 +24,18 @@
     
         public function getValues($key, $value){
             $sql = 'SELECT idres, description, categorie, localisation, username 
-                    FROM res, users WHERE res.iduser = users.iduser &&'
+                    FROM res, users WHERE res.iduser = users.iduser && res.'
                     .$key."='".$value."';";
             $query = $this->connexion->prepare($sql);
             $query->execute();
-            return $query->fetchAll();    
+            return $query->fetchAll(PDO::FETCH_NUM);    
         }
 
+        public function getIduserOfRes(int $idRes) {
+            $sql = 'SELECT iduser FROM res WHERE idres =' .$idRes. ';';
+            $query = $this->connexion->prepare($sql);
+            $query->execute();
+            return intval($query->fetch(PDO::FETCH_NUM)[0]);
+        }
     }
 ?>

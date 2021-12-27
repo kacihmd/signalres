@@ -20,5 +20,12 @@
             return $query->fetchAll(PDO::FETCH_NUM);
         }
 
+        public function getIdOfUsername(String $username) {
+            $sql = "SELECT iduser FROM users WHERE username = '". $username. "';";
+            $query = $this->connexion->prepare($sql);
+            $query->execute();
+            return intval($query->fetch(PDO::FETCH_NUM)[0]);
+        }
+
     }
 ?>

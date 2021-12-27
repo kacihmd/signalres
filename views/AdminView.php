@@ -49,11 +49,9 @@
     <form method="post" action="/add/user" id="addUser">
         <fieldset>
             <legend>Ajouter un responsable</legend>
-            <label for="username"> Nom du responsable </label>
-            <input type="text" name="username"/> 
+            <input type="text" name="username" placeholder="Identifiant..." size="10"/> 
             <br>      
-            <label for="password"> Mot de passe du responsable </label>
-            <input type="text" name="password"/>
+            <input type="text" name="password" placeholder="Mot de passe..." size="10"/>
             <br>
             <input type="submit" value="Ajouter"/>
         </fieldset>

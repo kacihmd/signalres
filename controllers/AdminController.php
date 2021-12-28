@@ -49,7 +49,7 @@ class AdminController extends MainController {
         if (isset($_POST['username']) && isset($_POST['password'])) {
 
             if (strlen($_POST['username']) !== 0 && strlen($_POST['password']) !== 0) {
-                $this->userModel->addOne($_POST['username'], $_POST["password"]);
+                $this->userModel->addOne($_POST['username'], password_hash($_POST["password"], NULL));
             }
 
         }

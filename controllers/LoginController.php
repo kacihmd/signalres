@@ -18,19 +18,25 @@ class LoginController extends MainController {
         // On regarde s'il y a un utilisateur de ce nom dans la base de données
         $user = $this->userModel->getOne("username", $_POST['user']);
 
-        if (isset($user) && $user != null) {
+        if (isset($user) && $user != NULL) {
 
             // Si le mot de passe est bien le bon
-            if(!strcmp($_POST['mdp'], $user[2])) {
+            if (password_verify($_POST['mdp'], $user['mdp'])) {
                 $_SESSION['username'] = $_POST['user'];
                 $_SESSION['iduser'] = intval($user['iduser']);
 
                 header('Location: /ressource'); 
                 exit;   
-            }  
-        }
-        else {
-            //Problème de connexion
+
+            } else {
+                echo $user['mdp'] . " __<br>" ;
+                echo password_hash($_POST['mdp'], null);
+            }
+
+        } else {
+            echo "nul";
+            header('Location: /'); 
+            exit;   
         }
     }
 

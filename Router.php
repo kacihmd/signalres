@@ -44,6 +44,13 @@
         exit;
     }
 
+    if ($url[1] === "print" && isset($url[2]) && is_numeric($url[2])) {
+        require_once('controllers/PrintController.php');
+        $controller = new PrintController();
+        $controller->print(intval($url[2]));
+        exit;
+    }
+
     if ($url[1] === "delete" && isset($url[2])) {
         if ($url[2] === "user") {
             require_once('controllers/AdminController.php');

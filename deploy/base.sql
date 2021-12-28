@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE users (
     iduser INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     username VARCHAR(50),
-    mdp VARCHAR(25)
+    mdp VARCHAR(100)
 );
 
 -- TABLE RESSOURCES
@@ -36,14 +36,6 @@ CREATE TABLE anomalie (
     idticket INT
 );
 
--- CREATE TABLE anomalie (
---     idanomalie INT PRIMARY KEY NOT NULL AUTO_INCREMENT, 
---     idres INT,
---     descprobl VARCHAR(25),
---     CONSTRAINT FK_idresanomalie FOREIGN KEY (idres) REFERENCES res(idres)
---     ON DELETE CASCADE
--- );
-
 -- VUE TICKETS
 
 CREATE TABLE tickets (
@@ -60,11 +52,6 @@ CREATE TABLE tickets (
     ON DELETE SET DEFAULT ON UPDATE CASCADE
 );
 
--- CREATE OR REPLACE VIEW tickets
--- AS SELECT res.idres, descprobl, categorie, iduser 
--- FROM anomalie, res 
--- WHERE anomalie.idres = res.idres;
-
 -- Si c'est une anomalie crée par un utilisateur
 -- On enregistre l'id du ticket à laquelle elle appartient
 -- Ajout d'une contraite permettant la supression d'une anomalie relié à un
@@ -76,12 +63,18 @@ ALTER TABLE anomalie ADD CONSTRAINT FK_idticketanoamalie FOREIGN KEY (idticket)
 -- INSERTIONS DES UTILISATEURS 
 
 INSERT INTO `users` (`iduser`, `username`, `mdp`) VALUES
-(NULL, 'admin', 'password'),
-(NULL, 'KevinKennedy', 'password'),
-(NULL, 'LucyLavie', 'password'),
-(NULL, 'MichelMarie', 'password'),
-(NULL, 'JeanJean', 'password'),
-(NULL, 'DominiqueDubois', 'password');
+-- password
+(NULL, 'admin', '$2y$10$bQucALiqBKXPjDpkP4o5XukA4KMKmo2IpzwnjhnlEqW7X5RlOPKga'),
+-- kevinpass
+(NULL, 'KevinKennedy', '$2y$10$pj1vR7NBm8yyzEH3mZcr.u4P0rg7x0/zdwo3U1yiwowlY06CSH4Hy'),
+-- lucypass
+(NULL, 'LucyLavie', '$2y$10$ZWks3qUTiJHnk3lcS7iNBemttLaRypdTb5UVsCSN8s8Iu9u3DSQVC'),
+-- michelpass
+(NULL, 'MichelMarie', '$2y$10$h3yWF4zGJpqAsvEZOUYLXuxcy/PgUul/67CZPvPN2dcjLn/WCtamy'),
+-- jeanpass
+(NULL, 'JeanJean', '$2y$10$hIoJhd8ySuUyL5L5x78VM.NAdA5.K6ffUKwFxzdEeaiRwBtICmjSG'),
+-- dominiquepass
+(NULL, 'DominiqueDubois', '$2y$10$stZWLcAIMoRNts9/19bvEeRTHbXYWgkBAk.WcaX1HMrB/VyD4p/62');
 
 -- INSERTIONS DES RESSOURCES
 

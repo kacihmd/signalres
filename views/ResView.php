@@ -63,12 +63,24 @@
             </fieldset>
         </form>
 
-        <form action="/delete/res" method="post">
-            <fieldset>
-                <input class="hidden_id_input" type="hidden" name="idres"/>
-                <input type="submit" value="Supprimer"/>
-            </fieldset>
-        </form>
+        <div id="gestionButtons">
+
+            <form action="" method="post" id="impr" target="_blank">
+                <fieldset>
+                    <input type="submit" value="Imprimer"/>
+                </fieldset>
+            </form>
+
+            <form action="/delete/res" method="post">
+                <fieldset>
+                    <input class="hidden_id_input" type="hidden" name="idres"/>
+                    <input type="submit" value="Supprimer"/>
+                </fieldset>
+            </form>
+
+        </div>
+
+        
     </div>
 
 </fieldset>

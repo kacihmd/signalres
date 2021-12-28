@@ -1,0 +1,25 @@
+div {
+    text-align: center;
+}  
+
+.menu {
+    font-family: 'Roboto';
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    
+    background-color: white;
+    border: 2px dashed black;
+    border-radius: 15px;
+
+    padding: 5px 10px 5px 10px;
+    margin-right: 30px;
+    width: 100%;
+}
+
+body {
+    background-blend-mode: darken;
+    background-color: #F26419;
+    background-image: url(../images/outils.png);
+}

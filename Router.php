@@ -116,7 +116,7 @@
 
     // Sinon l'utilisateur est perdu (pour l'instant)
     http_response_code(404);
-    print("La page demandée n'existe pas ! " . $_SERVER['REQUEST_URI']);
-
+    //print("La page demandée n'existe pas ! " . $_SERVER['REQUEST_URI']);
+    require(__DIR__.'/views/404.php');
     exit;
 ?>

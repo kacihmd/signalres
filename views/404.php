@@ -16,11 +16,13 @@
         <div>
             <img src="/public/images/logo.png"/> </br>
         </div>
+        <div>
         <div class="menu">
             Erreur 404 </br>
             La page demandée n'existe pas ! <?= $_SERVER['REQUEST_URI'] ?> </br>
             Revenir sur le 
             <a href="/menu">Menu</a>
+        </div>
         </div>
 
     </body>

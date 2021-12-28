@@ -7,7 +7,7 @@ require_once(__DIR__.'/../models/SignalModel.php');
 class SignalController extends MainController {
 
     private ResModel $resModel;
-    private SignalModel $sigModel;
+    private SignalModel $signalModel;
     private int $idRes;
 
     public function __construct($idRes) {
@@ -26,18 +26,18 @@ class SignalController extends MainController {
         if (isset($_POST['idAnomalie']) && is_numeric($_POST['idAnomalie'])
             && !isset($_POST['newAnomalie'])) {
 
+            $res = $this->resModel->getOne("idres", $this->idRes);
+
             $idAnomalie = intval($_POST['idAnomalie']);
             if ($idAnomalie > 0) {
-                $this->signalModel->addTicket($this->idRes, $idAnomalie, FALSE);
+                $this->signalModel->addTicket($this->idRes, $idAnomalie, $res['iduser'], FALSE);
             }
 
         } else if (isset($_POST['newAnomalie'])) {
-            $res = $this->resModel->getOne("idres", $this->idRes);
-
             $idAnomalie = $this->signalModel->addAnomalie($res['categorie'], 
             filter_var(substr($_POST['newAnomalie'], 0, 100), FILTER_SANITIZE_STRING));
 
-            $this->signalModel->addTicket($this->idRes, $idAnomalie, TRUE);
+            $this->signalModel->addTicket($this->idRes, $idAnomalie, $res['iduser'], TRUE);
         }
 
         header('Location: /signal/'.$this->idRes);

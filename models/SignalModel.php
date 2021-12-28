@@ -8,9 +8,9 @@
         }
         
         // Créer un nouveau ticket.
-        public function addTicket(int $idres, int $idano, bool $newAno){
+        public function addTicket(int $idres, int $idano, int $iduser, bool $newAno){
             $sql = "INSERT INTO ".$this->table.
-                    " VALUES (NULL, ".$idres.",".$idano.", '".date("Y-m-d H:i:s")."');";
+                    " VALUES (NULL, ".$idres.",".$idano.", ".$iduser.",'".date("Y-m-d H:i:s")."');";
 
             $query = $this->connexion->prepare($sql);
             $query->execute();    

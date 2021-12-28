@@ -1,4 +1,4 @@
--- ALTER TABLE anomalie DROP CONSTRAINT FK_idticketanoamalie;
+ALTER TABLE anomalie DROP CONSTRAINT FK_idticketanoamalie;
 
 DROP TABLE IF EXISTS tickets;
 DROP TABLE IF EXISTS anomalie;
@@ -51,11 +51,14 @@ CREATE TABLE tickets (
     idtickets INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     idres INT NOT NULL,
     idanomalie INT NOT NULL,
+    iduser INT NOT NULL DEFAULT 1,
     signaldate DATETIME,
     CONSTRAINT FK_idresticket FOREIGN KEY (idres) REFERENCES res(idres) 
     ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT FK_idanomalieticket FOREIGN KEY (idanomalie) REFERENCES anomalie(idanomalie) 
-    ON DELETE CASCADE ON UPDATE CASCADE
+    ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT FK_iduserticket FOREIGN KEY (iduser) REFERENCES users(iduser)
+    ON DELETE SET DEFAULT ON UPDATE CASCADE
 );
 
 -- CREATE OR REPLACE VIEW tickets
@@ -74,7 +77,7 @@ ALTER TABLE anomalie ADD CONSTRAINT FK_idticketanoamalie FOREIGN KEY (idticket)
 -- INSERTIONS DES UTILISATEURS 
 
 INSERT INTO `users` (`iduser`, `username`, `mdp`) VALUES
-(0, 'admin', 'password'),
+(NULL, 'admin', 'password'),
 (NULL, 'KevinKennedy', 'password'),
 (NULL, 'LucyLavie', 'password'),
 (NULL, 'MichelMarie', 'password'),

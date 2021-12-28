@@ -2,8 +2,9 @@
 
   <!-- Affiche toutes les ressources associées au responsable connecté -->
 
-  <fieldset id="updateRes">
-    <legend>Modifier une ressource</legend>
+<fieldset id="updateRes">
+
+    <legend>Gestion des tickets</legend>
 
     <table>
         <thead>
@@ -23,7 +24,7 @@
                             <td> <?=$ticket['idtickets']?> </td>
                             <td>
                                 <ul>
-                                    <li><?=$ticket['idres']?></li>
+                                    <li>id : <?=$ticket['idres']?></li>
                                     <li><?=$ticket['description']?></li>
                                     <li><?=$ticket['categorie']?></li>
                                     <li><?=$ticket['localisation']?></li>
@@ -41,74 +42,19 @@
     
     <div class="modification">
 
-        <form action="/update/res" method="post" class="modification">
+        <form action="/archive/ticket" method="post" class="modification">
             <fieldset>
-                <input type="text" name="desc" 
-                    placeholder="Description..." size="10" />
-                <br>
-
-                <input type="text" name="cat" 
-                    placeholder="Catégorie..." size="10" />
-                <br>
-
-                <input type="text" name="loc" 
-                    placeholder="Localisation..." size="10" />
-                <br>
-
-                <?php if (isset($users)) {?>
-                <label for="resp">Responsable :</label>
-                <select name="resp">
-                    <?php
-                        foreach ($users as $key => $user) {
-                            echo('<option value="'.$user[0].'">'.$user[0].'</option>');
-                        }
-                    ?>
-                </select>
-                <br>
-                <?php } ?>
-
-                <input class="hidden_id_input" type="hidden" name="id" value=""/>
-                <input type="submit" value="Modifier"/>
+                <input class="hidden_id_input" type="hidden" name="idTicket" value=""/>
+                <input type="submit" value="Archiver"/>
             </fieldset>
         </form>
 
-        <form action="/delete/res" method="post">
+        <form action="/delete/ticket" method="post">
             <fieldset>
-                <input class="hidden_id_input" type="hidden" name="idres"/>
+                <input class="hidden_id_input" type="hidden" name="idTicket"/>
                 <input type="submit" value="Supprimer"/>
             </fieldset>
         </form>
     </div>
 
 </fieldset>
-
-
-<!-- Rajoute une nouvelle ressource -->
-    <form method="post" action="/add/res" id="addRes">
-        <fieldset>
-            <legend>Ajouter une ressource</legend>
-            <input type="text" name="desc" placeholder="Description..." size="10"/>
-            <br>      
-            <input type="text" name="cat" placeholder="Catégorie..." size="10"/> 
-            <br>
-            <input type="text" name="loc" placeholder="Localisation..." size="10"/>
-            <br>
-
-            <?php if (isset($users)) {?>
-                <label for="resp">Responsable :</label>
-                <select name="resp">
-                    <?php
-                        foreach ($users as $key => $user) {
-                            echo('<option value="'.$user[0].'">'.$user[0].'</option>');
-                        }
-                    ?>
-                </select>
-                <br>
-            <?php } ?>
-
-            <br>
-            <input type="submit" value="Ajouter"/>
-        </fieldset>
-    </form>
-
-</div>

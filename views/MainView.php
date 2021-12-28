@@ -2,7 +2,7 @@
 <!-- Par exemple le menu qui s'affiche partout, le footer etc... -->
 
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="utf-8" />
         <title><?= $title ?></title>

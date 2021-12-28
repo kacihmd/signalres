@@ -1,3 +1,5 @@
+-- ALTER TABLE anomalie DROP CONSTRAINT FK_idticketanoamalie;
+
 DROP TABLE IF EXISTS tickets;
 DROP TABLE IF EXISTS anomalie;
 DROP TABLE IF EXISTS res;
@@ -25,10 +27,14 @@ CREATE TABLE res (
 
 -- TABLE ANOMALIES
 
+-- Si c'est une anomalie crée par un utilisateur
+-- On enregistre l'id du ticket à laquelle elle appartient
+
 CREATE TABLE anomalie (
     idanomalie INT PRIMARY KEY NOT NULL AUTO_INCREMENT, 
     categorie VARCHAR(25),
-    descprobl VARCHAR(100)
+    descprobl VARCHAR(100),
+    idticket INT
 );
 
 -- CREATE TABLE anomalie (
@@ -45,7 +51,7 @@ CREATE TABLE tickets (
     idtickets INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     idres INT NOT NULL,
     idanomalie INT NOT NULL,
-    signaldate DATE,
+    signaldate DATETIME,
     CONSTRAINT FK_idresticket FOREIGN KEY (idres) REFERENCES res(idres) 
     ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT FK_idanomalieticket FOREIGN KEY (idanomalie) REFERENCES anomalie(idanomalie) 
@@ -57,10 +63,18 @@ CREATE TABLE tickets (
 -- FROM anomalie, res 
 -- WHERE anomalie.idres = res.idres;
 
+-- Si c'est une anomalie crée par un utilisateur
+-- On enregistre l'id du ticket à laquelle elle appartient
+-- Ajout d'une contraite permettant la supression d'une anomalie relié à un
+-- ticket supprimé
+
+ALTER TABLE anomalie ADD CONSTRAINT FK_idticketanoamalie FOREIGN KEY (idticket) 
+    REFERENCES tickets(idtickets) ON DELETE CASCADE;
+
 -- INSERTIONS DES UTILISATEURS 
 
 INSERT INTO `users` (`iduser`, `username`, `mdp`) VALUES
-(NULL, 'admin', 'password'),
+(0, 'admin', 'password'),
 (NULL, 'KevinKennedy', 'password'),
 (NULL, 'LucyLavie', 'password'),
 (NULL, 'MichelMarie', 'password'),
@@ -79,10 +93,10 @@ INSERT INTO `res` (`idres`, `description`, `categorie`, `localisation`, `iduser`
 
 -- INSERTIONS DES ANOMALIES
 
-INSERT INTO `anomalie` (`idanomalie`, `categorie`, `descprobl`) VALUES
-(NULL, 'Hygiène', "Produit d'hygiène en rupture"),
-(NULL, 'Hygiène', "Produit d'hygiène périmé"),
-(NULL, 'Toilettes', 'Toilettes Bouchées'),
-(NULL, 'Toilettes', "Besoin d'un nettoyage"),
-(NULL, 'Lumière', 'Ampoule grillée'),
-(NULL, 'Fourniture', 'Fourniture en rupture de stock');
+INSERT INTO `anomalie` (`idanomalie`, `categorie`, `descprobl`, `idticket`) VALUES
+(NULL, 'Hygiène', "Produit d'hygiène en rupture", NULL),
+(NULL, 'Hygiène', "Produit d'hygiène périmé", NULL),
+(NULL, 'Toilettes', 'Toilettes Bouchées', NULL),
+(NULL, 'Toilettes', "Besoin d'un nettoyage", NULL),
+(NULL, 'Lumière', 'Ampoule grillée', NULL),
+(NULL, 'Fourniture', 'Fourniture en rupture de stock', NULL);

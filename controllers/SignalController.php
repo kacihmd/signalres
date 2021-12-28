@@ -28,7 +28,7 @@ class SignalController extends MainController {
 
             $idAnomalie = intval($_POST['idAnomalie']);
             if ($idAnomalie > 0) {
-                $this->signalModel->addTicket($this->idRes, $idAnomalie);
+                $this->signalModel->addTicket($this->idRes, $idAnomalie, FALSE);
             }
 
         } else if (isset($_POST['newAnomalie'])) {
@@ -37,7 +37,7 @@ class SignalController extends MainController {
             $idAnomalie = $this->signalModel->addAnomalie($res['categorie'], 
             filter_var(substr($_POST['newAnomalie'], 0, 100), FILTER_SANITIZE_STRING));
 
-            $this->signalModel->addTicket($this->idRes, $idAnomalie);
+            $this->signalModel->addTicket($this->idRes, $idAnomalie, TRUE);
         }
 
         header('Location: /signal/'.$this->idRes);

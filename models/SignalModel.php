@@ -8,17 +8,29 @@
         }
         
         // Créer un nouveau ticket.
-        public function addTicket(int $idres, int $idano){
-
+        public function addTicket(int $idres, int $idano, bool $newAno){
             $sql = "INSERT INTO ".$this->table.
-                    " VALUES (NULL, ".$idres.",".$idano.", NULL);";
+                    " VALUES (NULL, ".$idres.",".$idano.", '".date("Y-m-d H:i:s")."');";
 
             $query = $this->connexion->prepare($sql);
             $query->execute();    
+
+            // Si c'était une anomalie entrée par un utlisateur 
+            // il faut la relier au ticket
+            if ($newAno) {
+                $sql = "SELECT MAX(idtickets) FROM tickets;";
+                $query = $this->connexion->prepare($sql);
+                $query->execute();
+                $idticket = intval($query->fetch(PDO::FETCH_NUM)[0]);
+
+                $sql = "UPDATE anomalie SET idticket = ".$idticket." WHERE idanomalie = ".$idano.";";
+                $query = $this->connexion->prepare($sql);
+                $query->execute();
+            }
         }
 
         public function addAnomalie(String $cat, String $descprob) {
-            $sql = "INSERT INTO anomalie VALUES (NULL, '".$cat."', '".$descprob."');";
+            $sql = "INSERT INTO anomalie VALUES (NULL, '".$cat."', '".$descprob."', NULL);";
             $query = $this->connexion->prepare($sql);
             $query->execute();
 

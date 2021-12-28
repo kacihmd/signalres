@@ -21,8 +21,7 @@ class AdminController extends MainController {
     }
 
     public function updateUser() {
-        if (isset($_POST['id']) 
-            && isset($_POST['username']) 
+        if (isset($_POST['id']) && isset($_POST['username']) 
             && isset($_POST['password'])) {
 
             $keys = [];
@@ -35,7 +34,7 @@ class AdminController extends MainController {
 
             if ($_POST['password'] !== "") {
                 array_push($keys, 'mdp');
-                array_push($values, $_POST['password']);
+                array_push($values, password_hash($_POST['password'], null));
             }
 
             $this->userModel->updateOne("username", $_POST['id'], $keys, $values);

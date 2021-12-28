@@ -42,7 +42,7 @@ class SignalController extends MainController {
             $this->signalModel->addTicket($this->idRes, $idAnomalie, $res['iduser'], TRUE);
         }
 
-        header('Location: /signal/'.$this->idRes);
+        header('Location: /signal/'.$this->idRes.'/?success');
     }
 
     public function render($cssIncludes = null, $jsIncludes = null, $content = null) { 

@@ -30,6 +30,12 @@
            placeholder="Racontez nous ce qu'il se passe !" size="30"/> 
     <input type="submit" name="submit" value="Signaler"/>
 
+    <?php 
+        if (isset($_GET['success'])) {
+            echo '<p style="color: red;"> Merci pour votre aide ! :) </p>';
+        }
+    ?>
+
 </form>
 
   

@@ -27,10 +27,6 @@ class LoginController extends MainController {
 
                 header('Location: /ressource'); 
                 exit;   
-
-            } else {
-                echo $user['mdp'] . " __<br>" ;
-                echo password_hash($_POST['mdp'], null);
             }
 
         } else {

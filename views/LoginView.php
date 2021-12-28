@@ -14,7 +14,7 @@
         <input type="password" name="mdp" id="mdpinput" placeholder="(╯°□°）╯ ︵ ┻━┻"/> 
         <br/>
 
-        <input type="submit" name="submit" value="Connexion" id="buttongreen"/>
+        <input type="submit" name="submit" value="login" class="button"/>
     </form>
 </div>  
 

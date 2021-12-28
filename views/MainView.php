@@ -53,11 +53,6 @@
             <?= $content ?>
         </div>
 
-        <!-- Pied de page -->
-        <div class="footer"> 
-            SignalRes : Racontez nous tous vos problèmes !
-        </div>
-
     </body>
 
 </html>

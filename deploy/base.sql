@@ -1,5 +1,4 @@
-ALTER TABLE anomalie DROP CONSTRAINT FK_idticketanoamalie;
-
+ALTER TABLE IF EXISTS anomalie DROP CONSTRAINT FK_idticketanoamalie;
 DROP TABLE IF EXISTS tickets;
 DROP TABLE IF EXISTS anomalie;
 DROP TABLE IF EXISTS res;

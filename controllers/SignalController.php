@@ -34,6 +34,8 @@ class SignalController extends MainController {
             }
 
         } else if (isset($_POST['newAnomalie'])) {
+            $res = $this->resModel->getOne("idres", $this->idRes);
+            
             $idAnomalie = $this->signalModel->addAnomalie($res['categorie'], 
             filter_var(substr($_POST['newAnomalie'], 0, 100), FILTER_SANITIZE_STRING));
 

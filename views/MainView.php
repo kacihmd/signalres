@@ -35,6 +35,7 @@
                 ?>
                 <?php if($session) {
                         echo('<a href="/ressource">Ressources</a>');
+                        echo('<a href="/tickets">Tickets</a>');
                     } 
                 ?>
                 <a href="/menu">Menu</a>

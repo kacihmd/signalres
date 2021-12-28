@@ -23,11 +23,6 @@
             <a href="/menu">Menu</a>
         </div>
 
-        <!-- Pied de page -->
-        <div class="footer"> 
-            SignalRes : Dites nous tous vos problèmes !
-        </div>
-
     </body>
 
 </html>

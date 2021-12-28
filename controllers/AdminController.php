@@ -9,6 +9,12 @@ class AdminController extends MainController {
 
     public function __construct() {
         parent::__construct("Page Administrateur");
+
+        if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'admin') {
+            header('Location: /');
+            exit;
+        }
+
         $this->userModel = new UserModel();
     }
 
@@ -57,12 +63,6 @@ class AdminController extends MainController {
     }
 
     public function render($cssIncludes = null, $jsIncludes = null, $content = null) {
-
-        if (!isset($_SESSION['username']) || !isset($_SESSION['iduser']) ||
-            $_SESSION['username'] !== 'admin' || $_SESSION['iduser'] !== 1) {
-            header('Location: /');
-            exit;
-        }
 
         // Récupération de tout les utilisateurs
         $users = $this->userModel->getAll();

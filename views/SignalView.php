@@ -26,8 +26,8 @@
     <?php } ?>
     
     <label for="newAnomalie">Si vous ne trouvez pas votre bonheur, pas de soucis...</label>
-    <input type="text" name="newAnomalie" id="newAnomalie"
-           placeholder="Racontez nous ce qu'il se passe !" size="30"/> 
+    <input type="text" name="newAnomalie" id="newAnomalie"placeholder="Racontez nous ce qu'il se passe !" size="30"/> 
+    <br>
     <input type="submit" name="submit" value="Signaler"/>
 
     <?php 

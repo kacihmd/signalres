@@ -4,9 +4,24 @@
 <h1> Connexion </h1>
 
 <div class="formulaire">
-  <form method="post">
-  Nom d'utilisateur : <input type="text" name="user" placeholder="Enter Username" id="input"/> </br>
-  Mot de passe : <input type="password" name="mdp" placeholder="Enter Password" id="input"/> </br> 
-  <input type="submit" name="submit" value="Connexion" id="buttongreen"/>
-  </form>
+    <form method="post">
+        
+        <label for="userinput">Nom d'utilisateur : </label>
+        <input type="text" name="user" id="userinput" placeholder="(ಠ_ಠ)" /> 
+        <br/>
+        
+        <label for="mdpinput">Mot de passe :</label>
+        <input type="password" name="mdp" id="mdpinput" placeholder="(╯°□°）╯ ︵ ┻━┻"/> 
+        <br/>
+
+        <input type="submit" name="submit" value="Connexion" id="buttongreen"/>
+    </form>
 </div>  
+
+<?php 
+
+    if (isset($_GET['failure'])) {
+        echo('<p id="failure"> Identifiant ou mot de passe Incorrect... :( </p>');
+    }
+
+?>

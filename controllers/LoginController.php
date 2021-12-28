@@ -18,7 +18,7 @@ class LoginController extends MainController {
         // On regarde s'il y a un utilisateur de ce nom dans la base de données
         $user = $this->userModel->getOne("username", $_POST['user']);
 
-        if (isset($user) && $user != NULL) {
+        if (isset($user)) {
 
             // Si le mot de passe est bien le bon
             if (password_verify($_POST['mdp'], $user['mdp'])) {
@@ -29,11 +29,10 @@ class LoginController extends MainController {
                 exit;   
             }
 
-        } else {
-            echo "nul";
-            header('Location: /'); 
-            exit;   
         }
+
+        header('Location: /login/?failure'); 
+        exit; 
     }
 
     public function disconnect() {

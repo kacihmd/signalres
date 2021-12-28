@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
+
+* {
+    text-align: center;
+    font-family: 'Sora', sans-serif;
+}
+
 #etiquette {
     display: flex;
     margin: 0 auto 0 auto;
@@ -9,7 +16,7 @@
 }
 
 #qrcode {
-    margin: auto 5mm auto auto;
+    margin: auto 5mm auto 5mm;
     width: 150px;
     height: 150px;
 }

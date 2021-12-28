@@ -46,6 +46,6 @@ systemctl restart apache2.service
 echo -e "--- Initialisation de la Base de données ---\n"
 echo "Remplissage par les données de test (sql/base.sql)..."
 cd /var/www/signalres/deploy
-mysql --user=projet --password=tejorp projet < sql/base.sql
+mysql --user=projet --password=tejorp projet < base.sql
 
 echo -e "\nDéploiement du projet SignalRes : Fini !\n"

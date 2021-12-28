@@ -35,20 +35,20 @@
         <form action="/update/res" method="post" class="modification">
             <fieldset>
                 <input type="text" name="desc" 
-                    placeholder="Description..." size="10" />
+                    placeholder="Description..." size="15" />
                 <br>
 
                 <input type="text" name="cat" 
-                    placeholder="Catégorie..." size="10" />
+                    placeholder="Catégorie..." size="15" />
                 <br>
 
                 <input type="text" name="loc" 
-                    placeholder="Localisation..." size="10" />
+                    placeholder="Localisation..." size="15" />
                 <br>
 
                 <?php if (isset($users)) {?>
-                <label for="resp">Responsable :</label>
-                <select name="resp">
+                <label for="selectUpdateRes">Responsable :</label>
+                <select name="resp" id="selectUpdateRes">
                     <?php
                         foreach ($users as $key => $user) {
                             echo('<option value="'.$user[0].'">'.$user[0].'</option>');
@@ -65,7 +65,7 @@
 
         <div id="gestionButtons">
 
-            <form action="" method="post" id="impr" target="_blank">
+            <form method="post" id="impr" target="_blank">
                 <fieldset>
                     <input type="submit" value="Imprimer"/>
                 </fieldset>
@@ -90,16 +90,16 @@
     <form method="post" action="/add/res" id="addRes">
         <fieldset>
             <legend>Ajouter une ressource</legend>
-            <input type="text" name="desc" placeholder="Description..." size="10"/>
-            <br>      
-            <input type="text" name="cat" placeholder="Catégorie..." size="10"/> 
-            <br>
-            <input type="text" name="loc" placeholder="Localisation..." size="10"/>
-            <br>
+            <input type="text" name="desc" placeholder="Description..." size="15"/>
+            <br/>      
+            <input type="text" name="cat" placeholder="Catégorie..." size="15"/> 
+            <br/>
+            <input type="text" name="loc" placeholder="Localisation..." size="15"/>
+            <br/>
 
             <?php if (isset($users)) {?>
-                <label for="resp">Responsable :</label>
-                <select name="resp">
+                <label for="selectAddRes">Responsable :</label>
+                <select name="resp" id="selectAddRes">
                     <?php
                         foreach ($users as $key => $user) {
                             echo('<option value="'.$user[0].'">'.$user[0].'</option>');
@@ -113,5 +113,3 @@
             <input type="submit" value="Ajouter"/>
         </fieldset>
     </form>
-
-</div>

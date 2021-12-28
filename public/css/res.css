@@ -8,9 +8,17 @@ table {
 	border-collapse: collapse;
 }
 
-thead,tfoot {
-    background-color: gray;
-    color: #fff;
+thead {
+    color: gray;
+}
+thead th:first-child {
+	padding: 0 0 15px 15px;
+}
+thead th:last-child {
+	padding: 0 15px 15px 0;
+}
+thead th {
+	padding-bottom: 15px;
 }
 
 /* Règle pour les lignes du tableau */
@@ -20,8 +28,8 @@ tbody tr:hover {
 	border: 3px dashed red;
 }
 
+/* Lorsqu'une ligne du tableau est selectionée */
 .resSelected{
-	border: 3px solid red;
 	background-color: lightpink;
 }
 
@@ -72,6 +80,9 @@ td {
 	width: fit-content;
 	height: fit-content;
 }
+#updateRes select {
+	margin-bottom: 20px;
+}
 
 fieldset {
 	padding: 0 50px 0 50px;
@@ -82,7 +93,7 @@ form {
 	margin-left: auto;
 	margin-right: auto;
 }
-input, select {
+input {
     margin-bottom: 15px;
 }
 
@@ -90,8 +101,8 @@ input, select {
 
 #addRes {
 	width: fit-content;
-	margin-left: auto;
 	margin: 25px auto auto auto;
+	margin-left: auto;
 }
 
 #addRes fieldset {

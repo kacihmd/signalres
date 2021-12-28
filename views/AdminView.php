@@ -12,7 +12,7 @@
                         foreach ($users as $user) {
                             echo('
                                 <tr>
-                                <td>'.$user[1].'</td>
+                                    <td>'.$user[1].'</td>
                                 </tr>'
                             );
                         }
@@ -25,9 +25,9 @@
             <form action="/update/user" method="post">
                 <fieldset>
                     <input type="text" name="username" 
-                        placeholder="Nom d'Utilisateur" size="10" />
+                        placeholder="Nom d'Utilisateur" size="15" />
                     <input type="text" name="password" 
-                        placeholder="Mot de Passe" size="10"/>
+                        placeholder="Mot de Passe" size="15"/>
 
                     <input class="hidden_id_input" type="hidden" name="id" value=""/>
                     <input type="submit" value="Modifier"/>
@@ -49,9 +49,9 @@
     <form method="post" action="/add/user" id="addUser">
         <fieldset>
             <legend>Ajouter un responsable</legend>
-            <input type="text" name="username" placeholder="Identifiant..." size="10"/> 
+            <input type="text" name="username" placeholder="Identifiant..." size="15"/> 
             <br>      
-            <input type="text" name="password" placeholder="Mot de passe..." size="10"/>
+            <input type="text" name="password" placeholder="Mot de passe..." size="15"/>
             <br>
             <input type="submit" value="Ajouter"/>
         </fieldset>

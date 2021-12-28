@@ -17,7 +17,7 @@
             }
             if ($jsIncludes != null) {
                 foreach ($jsIncludes as $file) {
-                    echo('<script type="text/javascript" src="'.$file.'"></script>');
+                    echo('<script src="'.$file.'"></script>');
                 }
             }
         ?>
@@ -27,7 +27,7 @@
 
         <!-- En tête de la page -->
         <header class="mainHeader">
-            <img class="logo" src="/public/images/logo.png">
+            <img class="logo" src="/public/images/logo.png" alt="signalres logo">
             <div class="navigation">
                 <?php if($admin) {
                         echo('<a href="/admin">Admin</a>');
@@ -55,7 +55,7 @@
 
         <!-- Pied de page -->
         <div class="footer"> 
-            SignalRes : Dites nous tous vos problèmes !
+            SignalRes : Racontez nous tous vos problèmes !
         </div>
 
     </body>

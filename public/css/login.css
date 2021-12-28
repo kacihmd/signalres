@@ -1,6 +1,9 @@
-h1 {
+input {
+    margin-bottom: 15px;
+}
+
+#failure {
+    color:red;
     text-align: center;
-    font-family: 'Roboto';
-    font-size: 40px;
-    text-decoration: underline;
+    margin-top: 50px;
 }

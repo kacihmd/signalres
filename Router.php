@@ -49,13 +49,21 @@
             require_once('controllers/AdminController.php');
             $controller = new AdminController();
             $controller->deleteUser();
+            exit;
+
         }
         if ($url[2] === "res") {
             require_once('controllers/ResController.php');
             $controller = new ResController();
             $controller->deleteRes();
+            exit;
         }
-        exit;
+        if ($url[2] === "ticket") {
+            require_once('controllers/TicketsController.php');
+            $controller = new TicketsController();
+            $controller->deleteTicket();
+            exit;
+        }
     }
 
     if ($url[1] === "update" && isset($url[2])) {
@@ -68,6 +76,12 @@
             require_once('controllers/ResController.php');
             $controller = new ResController();
             $controller->updateRes();
+        }
+        if ($url[2] === "ticket") {
+            require_once('controllers/TicketsController.php');
+            $controller = new TicketsController();
+            $controller->archiveTicket();
+            exit;
         }
         exit;
     }

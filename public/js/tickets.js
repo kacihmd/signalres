@@ -1,15 +1,13 @@
 "use strict";
 
-var ress = null;
+var tickets = null;
 var fieldset = null;
 var hidden_ids_input = null;
 
-function resSelected(tr) {
-    resUnselected();
+function ticketSelected(tr) {
+    ticketUnselected();
     tr.classList.add('resSelected');
     
-    console.log(tr);
-
     //  Réactivation des champs de formulaire
     for (let i = 0; i < fieldset.length; ++i) {
         fieldset[i].removeAttribute('disabled');
@@ -18,13 +16,14 @@ function resSelected(tr) {
     let id = tr.getElementsByTagName('td')[0].innerText;
     for (let i = 0; i < hidden_ids_input.length; i++) {
         let e = hidden_ids_input.item(i);
+        console.log(id);
         e.value = id;
     }
 }
 
-function resUnselected() {
-    for (let i = 0; i < ress.length; i++) {
-        let e = ress.item(i);
+function ticketUnselected() {
+    for (let i = 0; i < tickets.length; i++) {
+        let e = tickets.item(i);
         e.classList.remove('resSelected');
     }
 
@@ -36,22 +35,22 @@ function resUnselected() {
 
 window.onload = () => {
 
-    ress = document.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
-    fieldset = document.getElementById('updateRes').getElementsByTagName('fieldset');
+    tickets = document.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+    fieldset = document.getElementById('updateTicket').getElementsByTagName('fieldset');
     hidden_ids_input = document.getElementsByClassName('hidden_id_input');
 
-    for (let i = 0; i < ress.length; i++) {
+    for (let i = 0; i < tickets.length; i++) {
 
-        let e = ress.item(i);
+        let e = tickets.item(i);
 
         e.onclick = (event) => {
             event.stopPropagation();
-            resSelected(e);
+            ticketSelected(e);
         }
     }
 
-    document.onclick = resUnselected;
-    resUnselected();
+    document.onclick = ticketUnselected;
+    ticketUnselected();
 
     document.getElementsByClassName('modification')[0].onclick =  (event) => {
         event.stopPropagation();

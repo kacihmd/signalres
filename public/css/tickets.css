@@ -1,0 +1,241 @@
+
+/* Le tableau */
+
+table {
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+	text-align: center;
+	border-collapse: collapse;
+}
+
+thead,tfoot {
+    background-color: gray;
+    color: #fff;
+}
+
+/* Règle pour les lignes du tableau */
+
+
+tbody tr:hover {
+	border: 3px dashed red;
+}
+
+.resSelected{
+	border: 3px solid red;
+	background-color: lightpink;
+}
+
+/* toutes les lignes du tableau excepté la première peuvent être cliquée */
+tbody tr {
+	cursor: pointer;
+}
+
+td {
+	border: 2px solid lightgray;
+}
+
+
+/* Bouttons et Formulaire */
+
+#updateTicket {
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 25px;
+	padding: 15px;
+}
+
+#updateTicket table {
+	width: fit-content;
+
+	margin-left: auto;
+	margin-right: auto;
+    margin-bottom: 20px;
+
+	border: none;
+	/* border: 3px solid lightgray; */
+}
+#updateTicket tr:first-child * {
+	border-top: none;
+}
+#updateTicket td {
+	padding: 15px 10px 15px 10px;
+	border-left: none;
+	border-right: none;
+}
+#updateTicket tr:last-child * {
+	border-bottom: none;
+}
+#updateTicket fieldset {
+	/* Cache le fieldset */
+	border: none;
+	width: fit-content;
+	height: fit-content;
+}
+
+fieldset {
+	padding: 0 50px 0 50px;
+}
+form {
+	width: fit-content;
+    text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+input, select {
+    margin-bottom: 15px;
+}
+
+/* Ajout d'un utilisateur */
+
+#addTicket {
+	width: fit-content;
+	margin-left: auto;
+	margin: 25px auto auto auto;
+}
+
+#addTicket fieldset {
+    border-radius: 25px;
+    padding-top: 15px;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Roboto';
+    font-size: 40px;
+    text-decoration: underline;
+}
+
+#buttongreentable {
+	color: #676f54;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 15px;
+	transition: 0.6s ease-in-out;
+	font-family: 'Roboto';
+    cursor: pointer;
+}
+
+#buttongreentable:hover {
+	color: #676f54;
+	background: #bde4a8;
+	box-shadow: 0 0 0px #bde4a8, 0 0 20px #bde4a8;
+}
+
+#buttonred {
+	color: #9a031e;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 15px;
+	transition: 0.6s ease-in-out;
+	font-family: 'Roboto';
+    cursor: pointer;
+}
+
+#buttonred:hover {
+	color: #9a031e;
+	background: #db2b39;
+	box-shadow: 0 0 0px #db2b39, 0 0 20px #db2b39;
+}
+
+/* Le tableau */
+
+table {
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+	text-align: center;
+	border-collapse: collapse;
+}
+
+thead,tfoot {
+    background-color: gray;
+    color: #fff;
+}
+
+/* Règle pour les lignes du tableau */
+
+
+tbody tr:hover {
+	border: 3px dashed red;
+}
+
+.resSelected{
+	border: 3px solid red;
+	background-color: lightpink;
+}
+
+/* toutes les lignes du tableau excepté la première peuvent être cliquée */
+tbody tr {
+	cursor: pointer;
+}
+
+td {
+	border: 2px solid lightgray;
+}
+
+
+/* Bouttons et Formulaire */
+
+#updateTicket {
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 25px;
+	padding: 15px;
+}
+
+#updateTicket table {
+	width: fit-content;
+
+	margin-left: auto;
+	margin-right: auto;
+    margin-bottom: 20px;
+
+	border: none;
+	/* border: 3px solid lightgray; */
+}
+#updateTicket tr:first-child * {
+	border-top: none;
+}
+#updateTicket td {
+	padding: 15px 10px 15px 10px;
+	border-left: none;
+	border-right: none;
+}
+#updateTicket tr:last-child * {
+	border-bottom: none;
+}
+#updateTicket fieldset {
+	/* Cache le fieldset */
+	border: none;
+	width: fit-content;
+	height: fit-content;
+}
+
+fieldset {
+	padding: 0 50px 0 50px;
+}
+form {
+	width: fit-content;
+    text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+input, select {
+    margin-bottom: 15px;
+}
+
+/* Ajout d'un utilisateur */
+
+#addTicket {
+	width: fit-content;
+	margin-left: auto;
+	margin: 25px auto auto auto;
+}
+
+#addTicket fieldset {
+    border-radius: 25px;
+    padding-top: 15px;
+}

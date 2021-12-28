@@ -2,7 +2,7 @@
 
   <!-- Affiche toutes les ressources associées au responsable connecté -->
 
-<fieldset id="updateRes">
+<fieldset id="updateTicket">
 
     <legend>Gestion des tickets</legend>
 
@@ -42,7 +42,7 @@
     
     <div class="modification">
 
-        <form action="/archive/ticket" method="post" class="modification">
+        <form action="/update/ticket" method="post" class="modification">
             <fieldset>
                 <input class="hidden_id_input" type="hidden" name="idTicket" value=""/>
                 <input type="submit" value="Archiver"/>

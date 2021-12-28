@@ -1,6 +1,7 @@
 "use strict";
 
 window.onload = () => {
+
     let anoSelect = document.getElementById('anoSelect');
     let newAno = document.getElementById('newAnomalie');
     

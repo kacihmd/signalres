@@ -25,7 +25,6 @@ html,body, footer {
     position: sticky;
     top: 0;
     height: 100px;
-    /* font-family: 'Outfit', sans-serif; */
     background-size: 50%;
     background-image: url(../images/outils.png);
     background-blend-mode: darken;
@@ -33,13 +32,14 @@ html,body, footer {
 
     border: 5px dashed black;
     border-radius: 50px;
-    margin: 5px 5px 5px 5px;
+    margin: 0px 5px 5px 5px;
     padding: 0 50px 0 50px;
 }
 
 .logo {
     width: 100px;
     margin-left: 20px;
+    cursor: pointer;
 }
 
 .navigation {
@@ -71,7 +71,7 @@ html,body, footer {
 
 .content {
     display: block;
-    margin: 30px 10% 0 10%;
+    margin: 30px 10% 30px 10%;
 
     background-color: white;
 

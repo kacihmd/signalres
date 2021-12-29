@@ -27,7 +27,8 @@
 
         <!-- En tête de la page -->
         <header class="mainHeader">
-            <img class="logo" src="/public/images/logo.png" alt="signalres logo">
+            <img class="logo" src="/public/images/logo.png" alt="signalres logo"
+                onclick="window.location='/';">
             <div class="navigation">
                 <?php if($admin) {
                         echo('<a href="/admin">Admin</a>');
@@ -38,7 +39,6 @@
                         echo('<a href="/tickets">Tickets</a>');
                     } 
                 ?>
-                <a href="/menu">Menu</a>
                 <?php if($session) {
                         echo('<a href="/logout">Déconnexion</a>');
                     } else {

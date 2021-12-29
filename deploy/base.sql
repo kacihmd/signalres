@@ -68,7 +68,7 @@ INSERT INTO `users` (`iduser`, `username`, `mdp`) VALUES
 -- kevinpass
 (NULL, 'KevinKennedy', '$2y$10$pj1vR7NBm8yyzEH3mZcr.u4P0rg7x0/zdwo3U1yiwowlY06CSH4Hy'),
 -- lucypass
-(NULL, 'LucyLavie', '$2y$10$ZWks3qUTiJHnk3lcS7iNBemttLaRypdTb5UVsCSN8s8Iu9u3DSQVC'),
+(NULL, 'LucyLavie', '$2y$10$1JahDELHzqLg6GBGYvst4OOkyURqodmOZoMKLSvlhWaFmBgSj9vb6'),
 -- michelpass
 (NULL, 'MichelMarie', '$2y$10$h3yWF4zGJpqAsvEZOUYLXuxcy/PgUul/67CZPvPN2dcjLn/WCtamy'),
 -- jeanpass

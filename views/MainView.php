@@ -27,6 +27,13 @@
 
         <!-- En tête de la page -->
         <header class="mainHeader">
+            
+            <?php 
+                if (isset($_SESSION['username'])) {
+                    echo('<p class="username">'.$_SESSION['username'].'</p>');
+                }
+            ?>
+
             <img class="logo" src="/public/images/logo.png" alt="signalres logo"
                 onclick="window.location='/';">
             <div class="navigation">

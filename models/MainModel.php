@@ -16,7 +16,7 @@ abstract class MainModel {
         $this->setConnection();
     }
  
-    public function setConnection(){
+    public function setConnection() {
         // On supprime la connexion précédente
         $this->conexion = null;
 

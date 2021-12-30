@@ -6,7 +6,7 @@ var hidden_ids_input = null;
 
 function ticketSelected(tr) {
     ticketUnselected();
-    tr.classList.add('resSelected');
+    tr.classList.add('selected');
     
     //  Réactivation des champs de formulaire
     for (let i = 0; i < fieldset.length; ++i) {
@@ -24,7 +24,7 @@ function ticketSelected(tr) {
 function ticketUnselected() {
     for (let i = 0; i < tickets.length; i++) {
         let e = tickets.item(i);
-        e.classList.remove('resSelected');
+        e.classList.remove('selected');
     }
 
     // Désactivation des champs de formulaire
@@ -36,7 +36,7 @@ function ticketUnselected() {
 window.onload = () => {
 
     tickets = document.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
-    fieldset = document.getElementById('updateTicket').getElementsByTagName('fieldset');
+    fieldset = document.getElementById('updateCrud').getElementsByTagName('fieldset');
     hidden_ids_input = document.getElementsByClassName('hidden_id_input');
 
     for (let i = 0; i < tickets.length; i++) {

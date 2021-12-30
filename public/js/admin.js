@@ -6,7 +6,7 @@ var hidden_ids_input = null;
 
 function userSelected(tr) {
     userUnselected();
-    tr.classList.add('userSelected');
+    tr.classList.add('selected');
     
     console.log(tr);
 
@@ -25,7 +25,7 @@ function userSelected(tr) {
 function userUnselected() {
     for (let i = 1; i < users.length; i++) {
         let e = users.item(i);
-        e.classList.remove('userSelected');
+        e.classList.remove('selected');
     }
 
     // Désactivation des champs de formulaire
@@ -37,7 +37,7 @@ function userUnselected() {
 window.onload = () => {
 
     users = document.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
-    fieldset = document.getElementById('updateUser').getElementsByTagName('fieldset');
+    fieldset = document.getElementById('updateCrud').getElementsByTagName('fieldset');
     hidden_ids_input = document.getElementsByClassName('hidden_id_input');
 
     for (let i = 1; i < users.length; i++) {

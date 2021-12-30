@@ -1,9 +1,9 @@
 <!-- Vue de la page administrateur -->
  <!-- Affiche tous les responsables -->
 
-    <fieldset id="updateUser" class=formulaire>
+    <fieldset id="updateCrud">
 
-    <legend>Modifier un Responsable</legend>
+    <legend>Responsables</legend>
 
         <table>
             <tbody>
@@ -24,10 +24,13 @@
         <div class="modification">
             <form action="/update/user" method="post">
                 <fieldset>
+                    <legend>Modifer un repsonsable</legend>
                     <input type="text" name="username" 
-                        placeholder="Nom d'Utilisateur" size="15" />
+                        placeholder="Nom d'utilisateur..." size="15" />
                     <input type="text" name="password" 
-                        placeholder="Mot de Passe" size="15"/>
+                        placeholder="Mot de Passe..." size="15"/>
+
+                    <br>
 
                     <input class="hidden_id_input" type="hidden" name="id" value=""/>
                     <input type="submit" value="Modifier"/>
@@ -35,10 +38,8 @@
             </form>
 
             <form action="/delete/user" method="post">
-                <fieldset>
                     <input class="hidden_id_input" type="hidden" name="id"/>
                     <input type="submit" value="Supprimer"/>
-                </fieldset>
             </form>
         </div>
 
@@ -46,10 +47,10 @@
 
     <div class="formulaire">
     <!-- Rajoute un nouveau responsable -->
-    <form method="post" action="/add/user" id="addUser">
+    <form method="post" action="/add/user">
         <fieldset>
             <legend>Ajouter un responsable</legend>
-            <input type="text" name="username" placeholder="Identifiant..." size="15"/> 
+            <input type="text" name="username" placeholder="Nom d'utilisateur..." size="15"/> 
             <br>      
             <input type="text" name="password" placeholder="Mot de passe..." size="15"/>
             <br>

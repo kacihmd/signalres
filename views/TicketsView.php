@@ -2,9 +2,9 @@
 
   <!-- Affiche toutes les ressources associées au responsable connecté -->
 
-<fieldset id="updateTicket">
+<fieldset id="updateCrud">
 
-    <legend>Gestion des tickets</legend>
+    <legend>Tickets</legend>
 
     <table>
         <thead>
@@ -43,17 +43,13 @@
     <div class="modification">
 
         <form action="/update/ticket" method="post" class="modification">
-            <fieldset>
-                <input class="hidden_id_input" type="hidden" name="idTicket" value=""/>
-                <input type="submit" value="Archiver"/>
-            </fieldset>
+            <input class="hidden_id_input" type="hidden" name="idTicket" value=""/>
+            <input type="submit" value="Archiver"/>
         </form>
 
         <form action="/delete/ticket" method="post">
-            <fieldset>
-                <input class="hidden_id_input" type="hidden" name="idTicket"/>
-                <input type="submit" value="Supprimer"/>
-            </fieldset>
+            <input class="hidden_id_input" type="hidden" name="idTicket"/>
+            <input type="submit" value="Supprimer"/>
         </form>
     </div>
 

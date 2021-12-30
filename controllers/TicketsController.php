@@ -60,7 +60,7 @@ class TicketsController extends MainController {
             $tickets = $this->ticketsModel->getValues("iduser", $_SESSION['iduser']);   
         }
 
-        $cssIncludes = ['/public/css/tickets.css'];
+        $cssIncludes = ['/public/css/tickets.css', '/public/css/crud.css'];
         $jsIncludes = ['/public/js/tickets.js'];
 
         // On génère la vue spécifique à la page responsable

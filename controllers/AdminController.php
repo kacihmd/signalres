@@ -67,7 +67,7 @@ class AdminController extends MainController {
         // Récupération de tout les utilisateurs
         $users = $this->userModel->getAll();
 
-        $cssIncludes = ['/public/css/admin.css'];
+        $cssIncludes = ['/public/css/crud.css'];
         $jsIncludes = ['/public/js/admin.js'];
 
         // On génère la vue spécifique au signalement d'une ressource

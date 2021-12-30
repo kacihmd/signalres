@@ -108,7 +108,7 @@ class ResController extends MainController {
             $res = $this->resModel->getValues("iduser", $_SESSION['iduser']);   
         }
 
-        $cssIncludes = ['/public/css/res.css'];
+        $cssIncludes = ['/public/css/crud.css'];
         $jsIncludes = ['/public/js/res.js'];
 
         // On génère la vue spécifique à la page responsable

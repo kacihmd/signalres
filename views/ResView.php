@@ -2,8 +2,8 @@
 
   <!-- Affiche toutes les ressources associées au responsable connecté -->
 
-<fieldset id="updateRes">
-    <legend>Modifier une ressource</legend>
+<fieldset id="updateCrud">
+    <legend>Ressources</legend>
 
     <table>
         <thead>
@@ -34,6 +34,7 @@
 
         <form action="/update/res" method="post" class="modification">
             <fieldset>
+                <legend class="fieldsetUpdateCrud">Modifier une ressource</legend>
                 <input type="text" name="desc" 
                     placeholder="Description..." size="15" />
                 <br>
@@ -66,16 +67,12 @@
         <div id="gestionButtons">
 
             <form method="post" id="impr" target="_blank">
-                <fieldset>
                     <input type="submit" value="Imprimer"/>
-                </fieldset>
             </form>
 
             <form action="/delete/res" method="post">
-                <fieldset>
                     <input class="hidden_id_input" type="hidden" name="idres"/>
                     <input type="submit" value="Supprimer"/>
-                </fieldset>
             </form>
 
         </div>
@@ -87,7 +84,7 @@
 
 
 <!-- Rajoute une nouvelle ressource -->
-    <form method="post" action="/add/res" id="addRes">
+    <form method="post" action="/add/res">
         <fieldset>
             <legend>Ajouter une ressource</legend>
             <input type="text" name="desc" placeholder="Description..." size="15"/>
@@ -108,8 +105,6 @@
                 </select>
                 <br>
             <?php } ?>
-
-            <br>
             <input type="submit" value="Ajouter"/>
         </fieldset>
     </form>

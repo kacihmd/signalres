@@ -1,0 +1,79 @@
+/* Le tableau */
+
+table {
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+	text-align: center;
+	border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+thead {
+    color: gray;
+}
+thead th:first-child {
+	padding: 0 0 15px 15px;
+}
+thead th:last-child {
+	padding: 0 15px 15px 0;
+}
+thead th {
+	padding-bottom: 15px;
+}
+
+/* Règle pour les lignes du tableau */
+tbody tr {
+	cursor: pointer;
+    border-top: none;
+}
+tbody tr:hover {
+	border: 3px dashed red;
+}
+tbody tr:first-child * {
+	border-top: none;
+}
+tbody tr:last-child * {
+	border-bottom: none;
+}
+/* Lorsqu'une ligne du tableau est selectionée */
+.selected{
+	background-color: lightpink;
+}
+
+
+td {
+	border: 2px solid lightgray;
+    padding: 15px 10px 15px 10px;
+	border-left: none;
+	border-right: none;
+}
+
+
+form {
+	width: fit-content;
+    text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+fieldset {
+	width: fit-content;
+	height: fit-content;
+
+    margin: 0 auto 20px auto;
+	border-radius: 25px;
+	padding: 15px 15px 0 15px;
+}
+
+input {
+    margin-bottom: 15px;
+}
+
+select {
+	margin-bottom: 20px;
+}
+
+#gestionButtons {
+	display: flex;
+}

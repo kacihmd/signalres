@@ -8,8 +8,6 @@ function userSelected(tr) {
     userUnselected();
     tr.classList.add('selected');
     
-    console.log(tr);
-
     //  Réactivation des champs de formulaire
     for (let i = 0; i < fieldset.length; ++i) {
         fieldset[i].removeAttribute('disabled');

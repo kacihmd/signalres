@@ -37,16 +37,16 @@
             <img class="logo" src="/public/images/logo.png" alt="signalres logo"
                 onclick="window.location='/';">
             <div class="navigation">
-                <?php if($admin) {
+                <?php if($_SESSION['username'] === 'admin') {
                         echo('<a href="/admin">Admin</a>');
                     } 
                 ?>
-                <?php if($session) {
+                <?php if(isset($_SESSION['username'])) {
                         echo('<a href="/ressource">Ressources</a>');
                         echo('<a href="/tickets">Tickets</a>');
                     } 
                 ?>
-                <?php if($session) {
+                <?php if(isset($_SESSION['username'])) {
                         echo('<a href="/logout">Déconnexion</a>');
                     } else {
                         echo('<a href="/login">Connexion</a>');

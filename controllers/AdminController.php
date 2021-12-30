@@ -3,6 +3,8 @@
 require_once('MainController.php');
 require_once(__DIR__.'/../models/UserModel.php');
 
+// AdminController : Classe affichant la page de gestion des gestionnaires 
+// de ressource.
 class AdminController extends MainController {
 
     private UserModel $userModel;
@@ -10,6 +12,7 @@ class AdminController extends MainController {
     public function __construct() {
         parent::__construct("Page Administrateur");
 
+        // Si ce n'est pas l'administrateur qui est connecté, retourne au menu.
         if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'admin') {
             header('Location: /');
             exit;
@@ -18,17 +21,24 @@ class AdminController extends MainController {
         $this->userModel = new UserModel();
     }
 
+    // deleteUser: la suppression d'un gestionnaire de ressource de 
+    // l'application.
+    // L'identifiant de l'utilisateur à supprimer doit être donné en POST.
     public function deleteUser() {
-        if (isset($_POST['id']) ) {
+        if (isset($_POST['id'])) {
             $this->userModel->deleteOne("username", $_POST['id']);
         }
         header('Location: /admin');
         exit;
     }
 
+    // updateUser: Met à jour les données d'un utilisateur.
+    // Le nom d'utilisateur doit être donné en POST.
+    // Le nouveau nom d'utilisateur et le nouveau mot de passe doivent
+    // être donnés en POST mais ne sont pas obligatoire définis.
     public function updateUser() {
-        if (isset($_POST['id']) && isset($_POST['username']) 
-            && isset($_POST['password'])) {
+        if (isset($_POST['id'])
+            && isset($_POST['username']) && isset($_POST['password'])) {
 
             $keys = [];
             $values = [];
@@ -50,8 +60,15 @@ class AdminController extends MainController {
         exit;
     }
 
+    // addUser: Ajoute un nouvel utilisateur à l'application.
+    // Le nom d'utilisateur et le mot de passe doivent être spécifié en POST. 
     public function addUser() {
-        if (isset($_POST['username']) && isset($_POST['password'])) {
+        // L'administrateur est le seul à pouvoir effectuer cette action.
+        if (isset($_SESSION['username']) && $_SESSION['username'] === 'admin'
+            && isset($_POST['username']) && isset($_POST['password'])) {
+            
+            // Aucune expression regulière ne contraint le mot de passe ou le nom
+            // d'utilisateur. Peut se mettre en place facilement.
 
             if (strlen($_POST['username']) !== 0 && strlen($_POST['password']) !== 0) {
                 $this->userModel->addOne($_POST['username'], password_hash($_POST["password"], NULL));

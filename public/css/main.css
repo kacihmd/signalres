@@ -12,6 +12,10 @@
     font-family: 'Sora', sans-serif;
 }
 
+input {
+    text-align: start;
+}
+
 /* Initialisation des marges et padding des éléments à 0 */
 
 html,body, footer {
@@ -102,7 +106,7 @@ html,body, footer {
     padding: 30px;
 }
 
-/* Bouton vert */
+/* Boutons */
 
 .button, input[type=submit] {
     margin-top: 10px;

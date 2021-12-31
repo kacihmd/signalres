@@ -6,3 +6,7 @@ select {
 input {
     margin-bottom: 15px;
 }
+
+.mainHeader a, .mainHeader p {
+    display: none;
+}

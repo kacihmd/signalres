@@ -4,6 +4,8 @@ require_once('MainController.php');
 require_once(__DIR__.'/../models/ResModel.php');
 require_once(__DIR__.'/../models/SignalModel.php');
 
+// SignalController : Page du formulaire de signalement d'anomalies concercant
+// les ressources.
 class SignalController extends MainController {
 
     private ResModel $resModel;
@@ -22,6 +24,9 @@ class SignalController extends MainController {
         $this->idRes = intval($idRes);
     }
 
+    // addSignal: Création d'un ticket pour une ressource
+    // En POST doit être fournit soit l'identifiant de l'anomalie à ajouter au ticket
+    // soit la description d'une anomalie à ajouter à l'application
     public function addSignal() {
         if (isset($_POST['idAnomalie']) && is_numeric($_POST['idAnomalie'])
             && !isset($_POST['newAnomalie'])) {
@@ -37,7 +42,7 @@ class SignalController extends MainController {
             $res = $this->resModel->getOne("idres", $this->idRes);
             
             $idAnomalie = $this->signalModel->addAnomalie($res['categorie'], 
-            filter_var(substr($_POST['newAnomalie'], 0, 100), FILTER_SANITIZE_STRING));
+            substr($_POST['newAnomalie'], 0, 100));
 
             $this->signalModel->addTicket($this->idRes, $idAnomalie, $res['iduser'], TRUE);
         }

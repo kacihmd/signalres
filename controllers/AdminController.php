@@ -63,9 +63,7 @@ class AdminController extends MainController {
     // addUser: Ajoute un nouvel utilisateur à l'application.
     // Le nom d'utilisateur et le mot de passe doivent être spécifié en POST. 
     public function addUser() {
-        // L'administrateur est le seul à pouvoir effectuer cette action.
-        if (isset($_SESSION['username']) && $_SESSION['username'] === 'admin'
-            && isset($_POST['username']) && isset($_POST['password'])) {
+        if (isset($_POST['username']) && isset($_POST['password'])) {
             
             // Aucune expression regulière ne contraint le mot de passe ou le nom
             // d'utilisateur. Peut se mettre en place facilement.
@@ -81,7 +79,7 @@ class AdminController extends MainController {
 
     public function render($cssIncludes = null, $jsIncludes = null, $content = null) {
 
-        // Récupération de tout les utilisateurs
+        // Récupération de tous les utilisateurs
         $users = $this->userModel->getAll();
 
         $cssIncludes = ['/public/css/crud.css'];

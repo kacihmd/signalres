@@ -4,6 +4,7 @@ require_once('MainController.php');
 require_once(__DIR__.'/../models/ResModel.php');
 require_once(__DIR__.'/../models/UserModel.php');
 
+// ResController : Page de gestion des ressources
 class ResController extends MainController {
 
     private ResModel $resModel;
@@ -15,9 +16,13 @@ class ResController extends MainController {
 
     }
 
+    // deleteRes: Méthode de suppression d'une ressource de l'application.
+    // L'identifiant de la ressource doit être donné en POST.
     public function deleteRes() {
         if (isset($_POST['idres']) && is_numeric($_POST['idres']) ) {
 
+            // Seul l'administrateur ou le responsable de la ressource peut
+            // demander sa suppression.
             if ($_SESSION['username'] === 'admin' 
                 || $this->resModel->getIduserOfRes($_POST['idres']) === intval($_SESSION['iduser'])) {
                 
@@ -29,9 +34,12 @@ class ResController extends MainController {
         exit;
     }
 
+    // updateRes: Méthode permettant de mettre à jour les caractéristiques d'un
+    // ressource. En POST doit être doit être fournit l'identifiant de la ressource.
+    // Peuvent être fournit une description, une catégorie, une localisation. 
     public function updateRes() {
-        if (isset($_POST['desc']) && isset($_POST['cat']) 
-            && isset($_POST['loc'])) {
+        if (isset($_POST['id']) && is_numeric($_POST['id']) &&
+            isset($_POST['desc']) && isset($_POST['cat']) && isset($_POST['loc'])) {
                     
             $keys = [];
             $values = [];
@@ -68,6 +76,9 @@ class ResController extends MainController {
         exit;
     }
 
+    // addRes: Méthode permettant d'ajouter une ressource à l'application.
+    // Doivent être fournit en POST une decription, une catégorie, une localisation,
+    // et éventuellement un responsable dans le cas d'un ajout par l'administrateur 
     public function addRes() {
         if (isset($_POST['desc']) && isset($_POST['cat']) 
             && isset($_POST['loc'])) {
@@ -75,7 +86,7 @@ class ResController extends MainController {
             if ($_POST['desc'] !== "" && $_POST['cat'] !== ""
                 && $_POST['loc'] !== "") {
 
-                $respId= $_SESSION['iduser'];
+                $respId = $_SESSION['iduser'];
 
                 if ($_SESSION['username'] === 'admin' 
                     && isset($_POST['resp']) && $_POST['resp'] !== "") {

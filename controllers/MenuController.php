@@ -2,6 +2,7 @@
 
 require_once('MainController.php');
 
+// Page principale et de présentation de l'application
 class MenuController extends MainController {
 
     public function __construct() {

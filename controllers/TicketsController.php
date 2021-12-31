@@ -3,6 +3,7 @@
 require_once('MainController.php');
 require_once(__DIR__.'/../models/TicketsModel.php');
 
+// TicketsController : Page de gestion des tickets.
 class TicketsController extends MainController {
 
     private TicketsModel $ticketsModel;
@@ -14,6 +15,13 @@ class TicketsController extends MainController {
 
     }
 
+    /* archiveTicket: Dans l'état actuel de l'application la méthode n'archive pas
+                      vraiment le ticket ciblé. Elle s'assure néanmoin que l'anomalie
+                      associée deviennt permanente. Elle est détachée du ticket qui se voit
+                      supprimée et pourra être réutilisée pour de futurs signalements.
+
+        Doit être fournit en POST l'id du ticket à archiver.
+    */
     public function archiveTicket() {
         if (isset($_POST['idTicket']) && is_numeric($_POST['idTicket'])) {
             
@@ -31,6 +39,11 @@ class TicketsController extends MainController {
         exit;
     }
 
+    /* deleteTicket: Supprime un ticket donné. Si une anomalie y est attachée elle 
+                     sera supprimée aussi de part les propriété définit dans 
+                     la base de donnée.
+        En POST doit être donné l'identifiant du ticket.
+    */
     public function deleteTicket() {
         if (isset($_POST['idTicket']) && is_numeric($_POST['idTicket'])) {
             

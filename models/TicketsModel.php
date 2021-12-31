@@ -12,12 +12,6 @@
                     FROM tickets, res, anomalie
                     WHERE tickets.idres = res.idres && tickets.idanomalie = anomalie.idanomalie';
         }
-        
-        public function addOne($description, $categorie, $localisation, $iduser) {
-            $sql = "INSERT INTO ".$this->table." VALUES (NULL,'".$description."','".$categorie."','".$localisation."',".$iduser.")";
-            $query = $this->connexion->prepare($sql);
-            $query->execute();    
-        }
 
         public function getAll() {
             $query = $this->connexion->prepare($this->sql_retrieve_tickets);
@@ -32,10 +26,26 @@
             return $query->fetchAll(PDO::FETCH_ASSOC);    
         }
 
-        public function setAnomaliePermanent($idano) {
-            $sql = "UPDATE anomalie SET idticket = NULL WHERE idanomalie = ".$idano.";";
+        // Créer un nouveau ticket et relie l'anomalie donnée au ticket si c'était une nouvelle anomalie.
+        public function addTicket(int $idres, int $idano, int $iduser, bool $newAno){
+            $sql = "INSERT INTO ".$this->table.
+                    " VALUES (NULL, ".$idres.",".$idano.", ".$iduser.",'".date("Y-m-d H:i:s")."');";
+
             $query = $this->connexion->prepare($sql);
-            $query->execute();
+            $query->execute();    
+
+            // Si c'était une anomalie entrée par un utlisateur 
+            // il faut la relier au ticket
+            if ($newAno) {
+                $sql = "SELECT MAX(idtickets) FROM tickets;";
+                $query = $this->connexion->prepare($sql);
+                $query->execute();
+                $idticket = intval($query->fetch(PDO::FETCH_NUM)[0]);
+
+                $sql = "UPDATE anomalie SET idticket = ".$idticket." WHERE idanomalie = ".$idano.";";
+                $query = $this->connexion->prepare($sql);
+                $query->execute();
+            }
         }
     }
 ?>

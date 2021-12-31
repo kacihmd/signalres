@@ -2,14 +2,16 @@
 
 require_once('MainController.php');
 require_once(__DIR__.'/../models/ResModel.php');
-require_once(__DIR__.'/../models/SignalModel.php');
+require_once(__DIR__.'/../models/AnomalieModel.php');
+require_once(__DIR__.'/../models/TicketsModel.php');
 
 // SignalController : Page du formulaire de signalement d'anomalies concercant
 // les ressources.
 class SignalController extends MainController {
 
     private ResModel $resModel;
-    private SignalModel $signalModel;
+    private AnomalieModel $anoModel;
+    private TicketsModel $ticketsModel;
     private int $idRes;
 
     public function __construct($idRes) {
@@ -20,7 +22,8 @@ class SignalController extends MainController {
         parent::__construct("Signaler un problème...");
 
         $this->resModel = new ResModel();
-        $this->signalModel = new SignalModel();
+        $this->anoModel = new AnomalieModel();
+        $this->ticketsModel = new TicketsModel();
         $this->idRes = intval($idRes);
     }
 
@@ -35,16 +38,16 @@ class SignalController extends MainController {
 
             $idAnomalie = intval($_POST['idAnomalie']);
             if ($idAnomalie > 0) {
-                $this->signalModel->addTicket($this->idRes, $idAnomalie, $res['iduser'], FALSE);
+                $this->ticketsModel->addTicket($this->idRes, $idAnomalie, $res['iduser'], FALSE);
             }
 
         } else if (isset($_POST['newAnomalie'])) {
             $res = $this->resModel->getOne("idres", $this->idRes);
             
-            $idAnomalie = $this->signalModel->addAnomalie($res['categorie'], 
+            $idAnomalie = $this->anoModel->addAnomalie($res['categorie'], 
             substr($_POST['newAnomalie'], 0, 100));
 
-            $this->signalModel->addTicket($this->idRes, $idAnomalie, $res['iduser'], TRUE);
+            $this->ticketsModel->addTicket($this->idRes, $idAnomalie, $res['iduser'], TRUE);
         }
 
         header('Location: /signal/'.$this->idRes.'/?success');
@@ -54,7 +57,7 @@ class SignalController extends MainController {
         // Récupération de la ressources à signaler depuis le modèle
         $res = $this->resModel->getOne("idres", $this->idRes);
 
-        $anomaliesOfRes = $this->signalModel->getAnomaliesOfCategory($res['categorie']);
+        $anomaliesOfRes = $this->anoModel->getAnomaliesOfCategory($res['categorie']);
         
         $cssIncludes = ['/public/css/signal.css'];
         $jsIncludes = ['/public/js/signal.js'];

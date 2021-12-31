@@ -2,17 +2,19 @@
 
 require_once('MainController.php');
 require_once(__DIR__.'/../models/TicketsModel.php');
+require_once(__DIR__.'/../models/AnomalieModel.php');
 
 // TicketsController : Page de gestion des tickets.
 class TicketsController extends MainController {
 
     private TicketsModel $ticketsModel;
+    private AnomalieModel $anoModel;
 
     public function __construct() {
-
         parent::__construct("Gestion des Tickets");
-        $this->ticketsModel = new TicketsModel();
 
+        $this->ticketsModel = new TicketsModel();
+        $this->anoModel = new AnomalieModel();
     }
 
     /* archiveTicket: Dans l'état actuel de l'application la méthode n'archive pas
@@ -30,7 +32,7 @@ class TicketsController extends MainController {
             if ($_SESSION['username'] ==  'admin'
                 || $ticket['iduser'] == $_SESSION['iduser']) {
 
-                    $this->ticketsModel->setAnomaliePermanent($ticket['idanomalie']);
+                    $this->anoModel->setAnomaliePermanent($ticket['idanomalie']);
                     $this->ticketsModel->deleteOne('idtickets', $ticket['idtickets']);
             }
         }

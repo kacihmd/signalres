@@ -8,8 +8,7 @@
     // Protection des entrée des utilisateurs de l'application.
     // On applique un filtre permettant d'achapper tous les caractères spéciaux.
     foreach ($_POST as $key => $value) {
-        $_POST['$key'] = filter_var(substr($_POST[$value], 
-                                    FILTER_SANITIZE_STRING));
+        $_POST[$key] = filter_var($value, FILTER_SANITIZE_STRING);
     }
 
     // Casse la requête courrante en un tableau

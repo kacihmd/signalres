@@ -57,7 +57,7 @@ class SignalController extends MainController {
         // Récupération de la ressources à signaler depuis le modèle
         $res = $this->resModel->getOne("idres", $this->idRes);
 
-        $anomaliesOfRes = $this->anoModel->getAnomaliesOfCategory($res['categorie']);
+        $anomaliesOfRes = $this->anoModel->getValues('categorie', $res['categorie']);
         
         $cssIncludes = ['/public/css/signal.css'];
         $jsIncludes = ['/public/js/signal.js'];

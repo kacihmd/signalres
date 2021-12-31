@@ -104,7 +104,7 @@ html,body, footer {
 
 /* Bouton vert */
 
-.button {
+.button, input[type=submit] {
     margin-top: 10px;
 	color: #676f54;
 	text-decoration: none;
@@ -115,7 +115,7 @@ html,body, footer {
     cursor: pointer;
 }
 
-.button:hover {
+.button:hover, input[type=submit]:hover {
 	color: #676f54;
 	background: lightsalmon;
 }

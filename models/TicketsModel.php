@@ -1,11 +1,14 @@
 <?php
     require_once('MainModel.php');
 
+    // TicketsModel: Classe permettant de manipuler les tickets
     class TicketsModel extends MainModel {
 
         function __construct() {
             parent::__construct("tickets");
 
+            // Requête sql permettant de récupérer les informations utiles concernant un ticket
+            // Cette requête pourrait être évitée avec la création d'une vue adaptée dans la base.
             $this->sql_retrieve_tickets = 
                     'SELECT tickets.idtickets, res.idres, description, res.categorie, 
                     localisation, anomalie.idanomalie, descprobl, res.iduser, signaldate 
@@ -34,9 +37,9 @@
             $query = $this->connexion->prepare($sql);
             $query->execute();    
 
-            // Si c'était une anomalie entrée par un utlisateur 
-            // il faut la relier au ticket
+            // Si c'était une anomalie entrée par un utlisateur, il faut la relier au ticket
             if ($newAno) {
+                // Récupération de l'identifiant du dernier ticket ajouté
                 $sql = "SELECT MAX(idtickets) FROM tickets;";
                 $query = $this->connexion->prepare($sql);
                 $query->execute();

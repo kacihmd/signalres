@@ -40,7 +40,7 @@
         </tbody>
     </table>
     
-    <div class="modification">
+    <div id="gestionButtons">
 
         <form action="/update/ticket" method="post" class="modification">
             <input class="hidden_id_input" type="hidden" name="idTicket" value=""/>

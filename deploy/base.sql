@@ -19,9 +19,9 @@ CREATE TABLE res (
     description VARCHAR(50),
     categorie VARCHAR(10),
     localisation VARCHAR(25), -- (batiment,etage,salle)
-    iduser INT DEFAULT 1,
+    iduser INT,
     CONSTRAINT FK_iduserres FOREIGN KEY (iduser) REFERENCES users(iduser)
-    ON UPDATE CASCADE ON DELETE SET NULL
+    ON UPDATE CASCADE ON DELETE SET DEFAULT
 );
 
 -- TABLE ANOMALIES

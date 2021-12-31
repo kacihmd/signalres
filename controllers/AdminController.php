@@ -2,6 +2,7 @@
 
 require_once('MainController.php');
 require_once(__DIR__.'/../models/UserModel.php');
+require_once(__DIR__.'/../models/ResModel.php');
 
 // AdminController : Classe affichant la page de gestion des gestionnaires 
 // de ressource.
@@ -25,8 +26,9 @@ class AdminController extends MainController {
     // l'application.
     // L'identifiant de l'utilisateur à supprimer doit être donné en POST.
     public function deleteUser() {
-        if (isset($_POST['id'])) {
-            $this->userModel->deleteOne("username", $_POST['id']);
+        if (isset($_POST['id']) && is_numeric($_POST['id'])) {
+            (new ResModel)->switchUserResToAdmin($_POST['id']);
+            $this->userModel->deleteOne("iduser", $_POST['id']);
         }
         header('Location: /admin');
         exit;
@@ -53,7 +55,7 @@ class AdminController extends MainController {
                 array_push($values, password_hash($_POST['password'], null));
             }
 
-            $this->userModel->updateOne("username", $_POST['id'], $keys, $values);
+            $this->userModel->updateOne("iduser", $_POST['id'], $keys, $values);
         }
         
         header('Location: /admin');
@@ -64,21 +66,17 @@ class AdminController extends MainController {
     // Le nom d'utilisateur et le mot de passe doivent être spécifié en POST. 
     public function addUser() {
         if (isset($_POST['username']) && isset($_POST['password'])) {
-            
             // Aucune expression regulière ne contraint le mot de passe ou le nom
             // d'utilisateur. Peut se mettre en place facilement.
-
             if (strlen($_POST['username']) !== 0 && strlen($_POST['password']) !== 0) {
                 $this->userModel->addOne($_POST['username'], password_hash($_POST["password"], NULL));
             }
-
         }
         header('Location: /admin');
         exit;    
     }
 
     public function render($cssIncludes = null, $jsIncludes = null, $content = null) {
-
         // Récupération de tous les utilisateurs
         $users = $this->userModel->getAll();
 

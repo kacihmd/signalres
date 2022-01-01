@@ -6,6 +6,9 @@ require_once(__DIR__.'/../models/ResModel.php');
 // PrintController : Page générant l'étiquette d'une ressource
 class PrintController extends MainController {
 
+    private String $api;
+    private String $url;
+
     public function __construct() {
         parent::__construct("Etiquette Ressource");
         $this->resModel = new ResModel();

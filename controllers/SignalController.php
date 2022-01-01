@@ -54,8 +54,13 @@ class SignalController extends MainController {
     }
 
     public function render($cssIncludes = null, $jsIncludes = null, $content = null) { 
-        // Récupération de la ressources à signaler depuis le modèle
+        // Récupération de la ressource à signaler depuis le modèle
         $res = $this->resModel->getOne("idres", $this->idRes);
+
+        // Si la ressource n'existe pas on retourne au menu
+        if($res==NULL) {
+            header('Location: /');
+        }
 
         $anomaliesOfRes = $this->anoModel->getValues('categorie', $res['categorie']);
         
